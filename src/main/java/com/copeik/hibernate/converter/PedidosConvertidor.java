@@ -9,7 +9,7 @@ import com.copeik.hibernate.entity.Clientes;
 
 import com.copeik.hibernate.model.MClientes;
 
-@Component("ClientesConvertidor")
+@Component("pedidosConvertidor")
 public class PedidosConvertidor {
 
 	public List<MClientes> convertirLista(List<Clientes> arts){

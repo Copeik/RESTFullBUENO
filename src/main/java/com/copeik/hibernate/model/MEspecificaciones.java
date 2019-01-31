@@ -16,6 +16,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.copeik.hibernate.entity.Especificaciones;
+
 
 public class MEspecificaciones implements Serializable{
 
@@ -31,6 +33,12 @@ public class MEspecificaciones implements Serializable{
 	public MEspecificaciones() {
 	}
 
+	public MEspecificaciones(Especificaciones i) {
+		super();
+		this.id = new MEspecificaciones (i.id;
+		this.cantidad = cantidad;
+		this.precio = precio;
+	}
 
 	public MEspecificaciones(MEspecificacionesID id, int cantidad, double precio) {
 		super();

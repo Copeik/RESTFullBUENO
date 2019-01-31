@@ -6,17 +6,18 @@ import java.util.List;
 import org.springframework.stereotype.Component;
 
 import com.copeik.hibernate.entity.Clientes;
-
+import com.copeik.hibernate.entity.Direccion;
 import com.copeik.hibernate.model.MClientes;
+import com.copeik.hibernate.model.MDireccion;
 
-@Component("ClientesConvertidor")
+@Component("direccionConvertidor")
 public class DireccionConvertidor {
 
-	public List<MClientes> convertirLista(List<Clientes> arts){
-		List<MClientes> mcliente = new ArrayList<>();
+	public List<MDireccion> convertirLista(List<Direccion> arts){
+		List<MDireccion> mcliente = new ArrayList<>();
 		
-		for(Clientes art : arts) {
-			mcliente.add(new MClientes(art));
+		for(Direccion art : arts) {
+			mcliente.add(new MDireccion(art));
 		}
 		
 		return mcliente;
