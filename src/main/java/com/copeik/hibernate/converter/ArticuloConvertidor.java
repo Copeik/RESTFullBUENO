@@ -1,4 +1,4 @@
-package com.copeik.hibernate.converter;
+    package com.copeik.hibernate.converter;
 
 import java.util.ArrayList;
 import java.util.List;

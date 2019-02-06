@@ -1,0 +1,29 @@
+package com.copeik.hibernate.controller;
+
+import javax.validation.Valid;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.copeik.hibernate.converter.TrabajadoresConvertidor;
+import com.copeik.hibernate.entity.Trabajadores;
+import com.copeik.hibernate.repository.TrabajadoresRepositorio;
+import com.copeik.hibernate.service.TrabajadoresService;
+
+@RestController
+@RequestMapping("/v1")
+public class TrabajadoresController {
+	
+	@Autowired
+	@Qualifier("TrabajadoresServicio")
+	TrabajadoresService service;
+	
+	@PutMapping("/trabajadores")
+	public boolean agregarNota(@RequestBody @Valid Trabajadores trabajadores) {
+		return service.crear(trabajadores);
+	}
+}

@@ -5,21 +5,21 @@ import java.util.List;
 
 import org.springframework.stereotype.Component;
 
-import com.copeik.hibernate.entity.Clientes;
+import com.copeik.hibernate.entity.Pedidos;
 
-import com.copeik.hibernate.model.MClientes;
+import com.copeik.hibernate.model.MPedidos;
 
 @Component("pedidosConvertidor")
 public class PedidosConvertidor {
 
-	public List<MClientes> convertirLista(List<Clientes> arts){
-		List<MClientes> mcliente = new ArrayList<>();
+	public List<MPedidos> convertirLista(List<Pedidos> arts){
+		List<MPedidos> mpedidos = new ArrayList<>();
 		
-		for(Clientes art : arts) {
-			mcliente.add(new MClientes(art));
+		for(Pedidos art : arts) {
+			mpedidos.add(new MPedidos(art));
 		}
 		
-		return mcliente;
+		return mpedidos;
 	}
 	
 }
