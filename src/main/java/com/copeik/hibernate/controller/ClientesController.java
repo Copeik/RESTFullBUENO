@@ -23,7 +23,7 @@ public class ClientesController {
 	ClientesService service;
 	
 	@PutMapping("/clientes")
-	public boolean agregarNota(@RequestBody @Valid Clientes clientes) {
+	public boolean Aniadir(@RequestBody @Valid Clientes clientes) {
 		return service.crear(clientes);
 	}
 }

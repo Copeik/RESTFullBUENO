@@ -23,7 +23,7 @@ public class PedidosController {
 	PedidosService service;
 	
 	@PutMapping("/pedidos")
-	public boolean agregarNota(@RequestBody @Valid Pedidos pedidos) {
+	public boolean Aniadir(@RequestBody @Valid Pedidos pedidos) {
 		return service.crear(pedidos);
 	}
 }

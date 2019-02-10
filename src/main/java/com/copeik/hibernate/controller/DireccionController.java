@@ -23,7 +23,7 @@ public class DireccionController {
 	DireccionService service;
 	
 	@PutMapping("/direccion")
-	public boolean agregarNota(@RequestBody @Valid Direccion direccion) {
+	public boolean Aniadir(@RequestBody @Valid Direccion direccion) {
 		return service.crear(direccion);
 	}
 }

@@ -13,6 +13,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.copeik.hibernate.entity.Pedidos;
+
 
 public class MPedidos implements Serializable{
 	
@@ -32,6 +34,16 @@ public class MPedidos implements Serializable{
 	public double total;
 
 	public MTrabajadores cod_trab;
+	
+	
+	public MPedidos(Pedidos p) {
+		this.cod_pedido = p.codpedido;
+		this.cod_cliente = new MClientes(p.codcliente);
+		this.fecha = p.fecha;
+		this.entregado = p.entregado;
+		this.descripcion = p.descripcion;
+		this.total = p.total;
+	}
 	
 	public MPedidos() {
 	}

@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.copeik.hibernate.entity.Tipo;
+
 
 
 public class MTipo {
@@ -16,6 +18,11 @@ public class MTipo {
 	public String nombre;
 	
 	public MTipo() {
+	}
+	
+	public MTipo(Tipo t) {
+		this.codigo_t = t.codigo_t;
+		this.nombre = t.nombre;
 	}
 	
 	public MTipo(int codigo_t, String nombre) {

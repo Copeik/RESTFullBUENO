@@ -23,7 +23,7 @@ public class ArticulosController {
 	ArticuloService service;
 	
 	@PutMapping("/articulo")
-	public boolean agregarNota(@RequestBody @Valid Articulos articulo) {
+	public boolean Aniadir(@RequestBody @Valid Articulos articulo) {
 		return service.crear(articulo);
 	}
 }

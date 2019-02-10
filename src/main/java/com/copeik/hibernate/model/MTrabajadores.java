@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.copeik.hibernate.entity.Trabajadores;
+
 
 public class MTrabajadores {
 	
@@ -15,6 +17,10 @@ public class MTrabajadores {
 	public String contrasena;
 	
 	
+	public MTrabajadores(Trabajadores tra) {
+		this.cod_trabajador = tra.codtrabajador;
+		this.contrasena = tra.contrasena;
+	}
 	
 	public MTrabajadores() {
 	}

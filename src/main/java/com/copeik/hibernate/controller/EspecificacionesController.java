@@ -23,7 +23,7 @@ public class EspecificacionesController {
 	EspecificacionesService service;
 	
 	@PutMapping("/especificaciones")
-	public boolean agregarNota(@RequestBody @Valid Especificaciones especificaciones) {
+	public boolean Aniadir(@RequestBody @Valid Especificaciones especificaciones) {
 		return service.crear(especificaciones);
 	}
 }

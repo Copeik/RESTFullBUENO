@@ -23,7 +23,7 @@ public class TrabajadoresController {
 	TrabajadoresService service;
 	
 	@PutMapping("/trabajadores")
-	public boolean agregarNota(@RequestBody @Valid Trabajadores trabajadores) {
+	public boolean Aniadir(@RequestBody @Valid Trabajadores trabajadores) {
 		return service.crear(trabajadores);
 	}
 }

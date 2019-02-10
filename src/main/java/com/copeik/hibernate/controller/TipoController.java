@@ -23,7 +23,7 @@ public class TipoController {
 	TipoService service;
 	
 	@PutMapping("/tipo")
-	public boolean agregarNota(@RequestBody @Valid Tipo tipo) {
+	public boolean Aniadir(@RequestBody @Valid Tipo tipo) {
 		return service.crear(tipo);
 	}
 }
