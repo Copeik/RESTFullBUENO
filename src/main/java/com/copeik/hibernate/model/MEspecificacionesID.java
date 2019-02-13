@@ -11,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
+import com.copeik.hibernate.entity.EspecificacionesID;
+
 
 public class MEspecificacionesID implements Serializable{
 
@@ -20,6 +22,13 @@ public class MEspecificacionesID implements Serializable{
 	public MArticulos art;
 	
 	public MEspecificacionesID() {
+
+	}
+	
+	public MEspecificacionesID(EspecificacionesID i) {
+		
+		this.art=new MArticulos(i.art);
+		this.pedido= new MPedidos(i.pedido);
 
 	}
 	

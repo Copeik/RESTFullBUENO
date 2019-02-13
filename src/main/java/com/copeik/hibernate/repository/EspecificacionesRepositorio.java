@@ -18,4 +18,6 @@ public interface EspecificacionesRepositorio extends JpaRepository<Especificacio
 	public abstract List<Especificaciones> findById(int cod_art);
 	
 	public abstract Especificaciones findByPrecio(double precio);
+	
+	public abstract List<Especificaciones> findAll();
 }

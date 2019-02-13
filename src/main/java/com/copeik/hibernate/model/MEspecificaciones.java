@@ -35,7 +35,7 @@ public class MEspecificaciones implements Serializable{
 
 	public MEspecificaciones(Especificaciones i) {
 		super();
-		this.id = new MEspecificaciones (i.id);
+		this.id = new MEspecificacionesID (i.id);
 		this.cantidad = cantidad;
 		this.precio = precio;
 	}

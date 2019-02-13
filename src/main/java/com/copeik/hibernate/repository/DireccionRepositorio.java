@@ -16,5 +16,6 @@ public interface DireccionRepositorio extends JpaRepository<Direccion, Serializa
 	
 	public abstract List<Direccion> findByDirec(String titulo);
 	
+	public abstract List<Direccion> findAll();
 
 }

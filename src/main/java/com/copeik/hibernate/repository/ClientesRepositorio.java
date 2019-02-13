@@ -17,4 +17,6 @@ public interface ClientesRepositorio extends JpaRepository<Clientes, Serializabl
 	public abstract List<Clientes> findByNombre(String titulo);
 	
 	public abstract Clientes findByDir(Direccion dir);
+	
+	public abstract List<Clientes> findAll();
 }

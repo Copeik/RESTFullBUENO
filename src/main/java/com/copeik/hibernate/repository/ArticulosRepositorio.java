@@ -14,5 +14,5 @@ public interface ArticulosRepositorio extends JpaRepository<Articulos, Serializa
 	
 	public abstract List<Articulos> findByNombre(String titulo);
 	
-	public abstract Articulos findByCodarticuloAndNombre(int cod_articulo,String nombre);
+	public abstract List<Articulos> findAll();
 }
