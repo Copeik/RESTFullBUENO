@@ -11,6 +11,7 @@ import com.copeik.hibernate.converter.PedidosConvertidor;
 import com.copeik.hibernate.entity.Articulos;
 import com.copeik.hibernate.entity.Pedidos;
 import com.copeik.hibernate.model.MArticulos;
+import com.copeik.hibernate.model.MClientes;
 import com.copeik.hibernate.model.MPedidos;
 import com.copeik.hibernate.repository.PedidosRepositorio;
 
@@ -41,7 +42,7 @@ public class PedidosService {
 	
 	public boolean borrar(int cod_pedido) {
 		try {
-			Pedidos art = repositorio.findByCodpedido(cod_pedido);
+			Pedidos art = repositorio.findByCodpedido(cod_pedido).get(0);
 			repositorio.delete(art);
 			return true;
 		} catch (Exception e) {
@@ -51,6 +52,10 @@ public class PedidosService {
 	
 	public List<MPedidos> obtener(){
 		return convertidor.convertirLista(repositorio.findAll());
+	}
+	
+	public List<MPedidos> obtenerPorNombre(int cod_cliente){
+		return convertidor.convertirLista(repositorio.findByCodpedido(cod_cliente));
 	}
 
 	

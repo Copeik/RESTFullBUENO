@@ -12,7 +12,7 @@ import com.copeik.hibernate.entity.Pedidos;
 
 @Repository("pedidosRepositorio")
 public interface PedidosRepositorio extends JpaRepository<Pedidos, Serializable>{
-	public abstract Pedidos findByCodpedido(int codcliente); 
+	public abstract List<Pedidos> findByCodpedido(int codcliente); 
 	
 	public abstract List<Pedidos> findByCodcliente(String titulo);
 	

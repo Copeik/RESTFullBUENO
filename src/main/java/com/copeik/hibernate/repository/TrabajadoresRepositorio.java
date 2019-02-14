@@ -12,7 +12,7 @@ import com.copeik.hibernate.entity.Trabajadores;
 
 @Repository("trabajadoresRepositorio")
 public interface TrabajadoresRepositorio extends JpaRepository<Trabajadores, Serializable>{
-	public abstract Trabajadores findByCodtrabajador(int cod_articulo); 
+	public abstract List<Trabajadores> findByCodtrabajador(int cod_articulo); 
 	
 	public abstract List<Trabajadores> findAll();
 
