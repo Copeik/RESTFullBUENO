@@ -18,11 +18,11 @@ import com.copeik.hibernate.repository.EspecificacionesRepositorio;
 public class EspecificacionesService {
 
 	@Autowired
-	@Qualifier("EspecificacionesRepositorio")
+	@Qualifier("especificacionesRepositorio")
 	private EspecificacionesRepositorio repositorio;
 	
 	@Autowired
-	@Qualifier("EspecificacionesConvertidor")
+	@Qualifier("especificacionesConvertidor")
 	private EspecificacionesConvertidor convertidor;
 	
 	public boolean crear(Especificaciones especificaciones) {

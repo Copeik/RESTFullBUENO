@@ -19,11 +19,11 @@ import com.copeik.hibernate.repository.ArticulosRepositorio;
 public class ArticuloService {
 
 	@Autowired
-	@Qualifier("articuloRepositorio")
+	@Qualifier("articulosRepositorio")
 	private ArticulosRepositorio repositorio;
 	
 	@Autowired
-	@Qualifier("articuloConvertidor")
+	@Qualifier("articulosConvertidor")
 	private ArticuloConvertidor convertidor;
 	
 	public boolean crear(Articulos articulo) {

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 import com.copeik.hibernate.entity.Articulos;
 import com.copeik.hibernate.model.MArticulos;
 
-@Component("articuloConvertidor")
+@Component("articulosConvertidor")
 public class ArticuloConvertidor {
 
 	public List<MArticulos> convertirLista(List<Articulos> arts){

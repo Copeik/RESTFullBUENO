@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.copeik.hibernate.entity.Articulos;
 
-@Repository("articuloRepositorio")
+@Repository("articulosRepositorio")
 public interface ArticulosRepositorio extends JpaRepository<Articulos, Serializable>{
 	public abstract Articulos findByCodarticulo(int cod_articulo); 
 	
