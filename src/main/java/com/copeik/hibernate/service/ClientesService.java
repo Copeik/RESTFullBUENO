@@ -41,7 +41,7 @@ public class ClientesService {
 	
 	public boolean borrar(int cod_cliente ) {
 		try {
-			Clientes art = repositorio.findByCodcliente(cod_cliente);
+			Clientes art = repositorio.findByCodcliente(cod_cliente).get(0);
 			repositorio.delete(art);
 			return true;
 		} catch (Exception e) {
@@ -51,6 +51,10 @@ public class ClientesService {
 	
 	public List<MClientes> obtener(){
 		return convertidor.convertirLista(repositorio.findAll());
+	}
+	
+	public List<MClientes> obtenerPorNombre(int cod_cliente){
+		return convertidor.convertirLista(repositorio.findByCodcliente(cod_cliente));
 	}
 	
 }

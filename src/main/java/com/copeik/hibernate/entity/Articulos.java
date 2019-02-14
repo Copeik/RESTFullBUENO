@@ -31,6 +31,7 @@ public class Articulos implements Serializable{
 	public String descripcion;
 	@Column(name="precio_art")
 	public double precio_art;
+	@OneToOne()  
 	@JoinColumn(name = "codigo_t")
 	public Tipo tipo;
 	@Column(name="fecha_cad")

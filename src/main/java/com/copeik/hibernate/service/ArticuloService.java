@@ -54,4 +54,8 @@ public class ArticuloService {
 		return convertidor.convertirLista(repositorio.findAll());
 	}
 	
+	public List<MArticulos> obtenerPorNombre(String titulo){
+		return convertidor.convertirLista(repositorio.findByNombre(titulo));
+	}
+	
 }
