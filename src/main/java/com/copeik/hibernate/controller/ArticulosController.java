@@ -40,7 +40,7 @@ public class ArticulosController {
 	}
 	
 	@DeleteMapping("/articulo/{cod_art}")
-	public boolean borrar(@PathVariable("cor_art") int cod_art) {
+	public boolean borrar(@PathVariable("cod_art") int cod_art) {
 		return service.borrar(cod_art);
 		
 	}

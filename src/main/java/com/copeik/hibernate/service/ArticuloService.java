@@ -27,7 +27,6 @@ public class ArticuloService {
 	private ArticuloConvertidor convertidor;
 	
 	public boolean crear(Articulos articulo) {
-		
 			repositorio.save(articulo);
 			return true;
 		

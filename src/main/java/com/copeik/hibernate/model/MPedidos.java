@@ -1,6 +1,7 @@
 package com.copeik.hibernate.model;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -25,7 +26,7 @@ public class MPedidos implements Serializable{
 
 	public MClientes cod_cliente;
 
-	public LocalDate fecha;
+	public Date fecha;
 
 	public boolean entregado;
 
@@ -50,7 +51,7 @@ public class MPedidos implements Serializable{
 	
 	
 
-	public MPedidos(int cod_pedido, MClientes cod_cliente, LocalDate fecha,
+	public MPedidos(int cod_pedido, MClientes cod_cliente, Date fecha,
 			boolean entregado, String descripcion, double total, MTrabajadores cod_trab) {
 		super();
 		this.cod_pedido = cod_pedido;
@@ -100,11 +101,11 @@ public class MPedidos implements Serializable{
 	}
 
 
-	public LocalDate getFecha() {
+	public Date getFecha() {
 		return fecha;
 	}
 
-	public void setFecha(LocalDate fecha) {
+	public void setFecha(Date fecha) {
 		this.fecha = fecha;
 	}
 

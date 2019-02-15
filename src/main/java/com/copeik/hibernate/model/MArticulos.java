@@ -1,5 +1,6 @@
 package com.copeik.hibernate.model;
 
+import java.util.Date;
 import java.time.LocalDate;
 
 import javax.persistence.Column;
@@ -19,30 +20,30 @@ public class MArticulos {
 
 	public int cod_articulo;
 	public int cantidad;
-	public String Nombre;
+	public String nombre;
 	public String descripcion;
 	public double precio_art;
 	public MTipo tipo;
-	public LocalDate fecha_cad;
+	public Date fecha_cad;
 	
 	public MArticulos() {
 		
 	}
 	public MArticulos(Articulos art) {
-		this.cod_articulo = art.getCodarticulo();
-		this.cantidad = art.getCantidad();
-		Nombre = art.getNombre();
-		this.descripcion = art.getDescripcion();
-		this.precio_art = art.getPrecio_art();
-		this.tipo = new MTipo(art.getTipo().getCodigo_t(),art.getTipo().getNombre());
-		this.fecha_cad = art.getFecha_cad();
+		this.cod_articulo = art.codarticulo;
+		this.cantidad = art.cantidad;
+		this.nombre = art.nombre;
+		this.descripcion = art.descripcion;
+		this.precio_art = art.precio_art;
+		this.tipo = new MTipo(art.tipo);
+		this.fecha_cad = art.fecha_cad;
 	}
 	
 	public MArticulos(int cod_articulo, int cantidad, String nombre, String descripcion, double precio_art, MTipo tipo,
-			LocalDate fecha_cad) {
+			Date fecha_cad) {
 		this.cod_articulo = cod_articulo;
 		this.cantidad = cantidad;
-		Nombre = nombre;
+		this.nombre = nombre;
 		this.descripcion = descripcion;
 		this.precio_art = precio_art;
 		this.tipo = tipo;
@@ -62,10 +63,10 @@ public class MArticulos {
 		this.cantidad = cantidad;
 	}
 	public String getNombre() {
-		return Nombre;
+		return this.nombre;
 	}
 	public void setNombre(String nombre) {
-		Nombre = nombre;
+		this.nombre = nombre;
 	}
 	public String getDescripcion() {
 		return descripcion;
@@ -85,10 +86,10 @@ public class MArticulos {
 	public void setTipo(MTipo tipo) {
 		this.tipo = tipo;
 	}
-	public LocalDate getFecha_cad() {
+	public Date getFecha_cad() {
 		return fecha_cad;
 	}
-	public void setFecha_cad(LocalDate fecha_cad) {
+	public void setFecha_cad(Date fecha_cad) {
 		this.fecha_cad = fecha_cad;
 	}
 

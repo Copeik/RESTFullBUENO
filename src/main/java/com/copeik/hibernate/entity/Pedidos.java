@@ -1,6 +1,7 @@
 package com.copeik.hibernate.entity;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -13,6 +14,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
 
 @Entity  
 @Table(name= "Pedidos") 
@@ -27,8 +31,10 @@ public class Pedidos implements Serializable{
 	@OneToOne   
 	@JoinColumn(name="codcliente")
 	public Clientes codcliente;
+	@NotNull(message = "El  no puede ser nulo")
 	@Column(name="fecha")
-	public LocalDate fecha;
+	@Temporal(TemporalType.DATE)
+	public Date fecha;
 	@Column(name="entregado")
 	public boolean entregado;
 	@Column(name="descripcion")
@@ -44,7 +50,7 @@ public class Pedidos implements Serializable{
 	
 	
 
-	public Pedidos(Clientes cod_cliente, LocalDate fecha,
+	public Pedidos(Clientes cod_cliente, Date fecha,
 			boolean entregado, String descripcion, double total, Trabajadores cod_trab) {
 		this.codcliente = cod_cliente;
 		this.fecha = fecha;
@@ -92,11 +98,11 @@ public class Pedidos implements Serializable{
 	}
 
 
-	public LocalDate getFecha() {
+	public Date getFecha() {
 		return fecha;
 	}
 
-	public void setFecha(LocalDate fecha) {
+	public void setFecha(Date fecha) {
 		this.fecha = fecha;
 	}
 
