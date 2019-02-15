@@ -19,8 +19,7 @@ public class MTrabajadores {
 	public String contrasena;
 	
 	
-	public MTrabajadores(int cod_trabajador, String nombre, String contrasena) {
-		this.codtrabajador = cod_trabajador;
+	public MTrabajadores(String nombre, String contrasena) {
 		this.nombre = nombre;
 		this.contrasena = contrasena;
 	}
@@ -29,7 +28,6 @@ public class MTrabajadores {
 	}
 	
 	public MTrabajadores(Trabajadores tra) {
-		super();
 		this.codtrabajador = tra.codtrabajador;
 		this.nombre = tra.nombre;
 		this.contrasena = tra.contrasena;

@@ -29,9 +29,6 @@ public class TrabajadoresService {
 	public boolean crear(Trabajadores trabajadores) {
 			repositorio.save(trabajadores);
 			return true;
-		
-			
-		
 	}
 
 	public boolean actualizar(Trabajadores trabajadores) {

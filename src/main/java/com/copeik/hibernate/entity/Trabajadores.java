@@ -25,9 +25,9 @@ public class Trabajadores {
 	public Trabajadores() {
 	}
 	
-	public Trabajadores(int cod_trabajador, String contrasena) {
-		super();
-		this.codtrabajador = cod_trabajador;
+	public Trabajadores(String nombre, String contrasena) {
+		
+		this.nombre = nombre;
 		this.contrasena = contrasena;
 	}
 
