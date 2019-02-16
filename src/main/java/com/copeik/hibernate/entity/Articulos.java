@@ -41,9 +41,8 @@ public class Articulos implements Serializable{
 	public String descripcion;
 	@Column(name="precio_art")
 	public double precio_art;
-	@ManyToOne(fetch = FetchType.LAZY)  
+	@ManyToOne()  
 	@JoinColumn(name = "codigo_t")
-	@JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
 	@NotNull(message = "El tipo no puede ser nulo")
 	public Tipo tipo;
 	@NotNull(message = "El  no puede ser nulo")

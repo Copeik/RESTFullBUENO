@@ -33,10 +33,10 @@ public class ArticulosController {
 	@Qualifier("ArticuloServicio")
 	ArticuloService service;
 	
-	@PutMapping("/articulo")
+	/*@PutMapping("/articulo")
 	public boolean Actualizar(@RequestBody @Valid Articulos articulo) {
 		return service.crear(articulo);
-	}
+	}*/
 	@PutMapping("/articulo")
     public boolean Actualizar2 (@RequestParam(value="codarticulo", required=true) int codarticulo,@RequestParam(value="cantidad", required=true) int cantidad, 
             @RequestParam(value="nombre", required=true) String nombre,@RequestParam(value="descripcion", required=true) String descripcion, 
@@ -55,13 +55,13 @@ public class ArticulosController {
 		return service.actualizar(art);
 	}
 	
-	@PostMapping("/articulo")
+	/*@PostMapping("/articulo")
 	public boolean Aniadir(@RequestBody @Valid Articulos articulo) {
 		return service.actualizar(articulo);
-	}
+	}*/
 	
-	@DeleteMapping("/articulo/{cod_art}")
-	public boolean borrar(@PathVariable("cod_art") int cod_art) {
+	@DeleteMapping("/articulo")
+	public boolean borrar(@RequestParam(value="cod_art", required=true) int cod_art) {
 		return service.borrar(cod_art);
 		
 	}

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.copeik.hibernate.converter.PedidosConvertidor;
@@ -41,8 +42,8 @@ public class PedidosController {
 		return service.actualizar(pedidos);
 	}
 	
-	@DeleteMapping("/pedidos/{cod_pedido}")
-	public boolean borrar(@PathVariable("cod_pedido") int cod_pedido) {
+	@DeleteMapping("/pedidos")
+	public boolean borrar(@RequestParam(value="cod_pedido", required=true) int cod_pedido) {
 		return service.borrar(cod_pedido);
 		
 	}

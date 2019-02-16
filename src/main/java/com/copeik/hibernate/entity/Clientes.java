@@ -52,7 +52,7 @@ public class Clientes {
 		return nombre;
 	}
 	public void setNombre(String nombre) {
-		nombre = nombre;
+		this.nombre = nombre;
 	}
 	public String getContrasena() {
 		return Contrasena;
@@ -64,7 +64,7 @@ public class Clientes {
 		return correo;
 	}
 	public void setCorreo(String correo) {
-		correo = correo;
+		this.correo = correo;
 	}
 	public int getTelefono() {
 		return telefono;

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.copeik.hibernate.converter.TipoConvertidor;
@@ -41,9 +42,9 @@ public class TipoController {
 		return service.actualizar(tipo);
 	}
 	
-	@DeleteMapping("/tipo/{tipo}")
-	public boolean borrar(@PathVariable("tipo") String tipo) {
-		return service.borrar(tipo);
+	@DeleteMapping("/tipo")
+	public boolean borrar(@RequestParam(value="nombre", required=true) String nombre) {
+		return service.borrar(nombre);
 		
 	}
 	

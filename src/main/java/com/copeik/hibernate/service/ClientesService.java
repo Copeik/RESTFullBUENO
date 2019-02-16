@@ -36,7 +36,7 @@ public class ClientesService {
 
 	public boolean actualizar(Clientes cliente) {
 		repositorio.save(cliente);
-		return false;
+		return true;
 	}
 	
 	public boolean borrar(int cod_cliente ) {

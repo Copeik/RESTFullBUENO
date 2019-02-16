@@ -15,7 +15,7 @@ public class MClientes {
 
 	private static final long serialVersionUID =1L;
 	
-	public int cod_cliente;
+	public int codcliente;
 	public String nombre;
 	public String Contrasena;
 	public String correo;
@@ -23,7 +23,7 @@ public class MClientes {
 	public MDireccion dir;
 	
 	public MClientes(Clientes cli) {
-		this.cod_cliente = cli.getCod_cliente();
+		this.codcliente = cli.getCod_cliente();
 		this.nombre = cli.getNombre();
 		Contrasena = cli.getContrasena();
 		this.correo = cli.getCorreo();
@@ -33,7 +33,7 @@ public class MClientes {
 	
 	public MClientes(int cod_cliente, String nombre, String contrasena, String correo, int telefono, MDireccion dir) {
 		super();
-		this.cod_cliente = cod_cliente;
+		this.codcliente = cod_cliente;
 		this.nombre = nombre;
 		Contrasena = contrasena;
 		this.correo = correo;
@@ -42,16 +42,16 @@ public class MClientes {
 	}
 	
 	public int getCod_cliente() {
-		return cod_cliente;
+		return codcliente;
 	}
 	public void setCod_cliente(int cod_cliente) {
-		cod_cliente = cod_cliente;
+		this.codcliente = cod_cliente;
 	}
 	public String getNombre() {
 		return nombre;
 	}
 	public void setNombre(String nombre) {
-		nombre = nombre;
+		this.nombre = nombre;
 	}
 	public String getContrasena() {
 		return Contrasena;
@@ -63,13 +63,13 @@ public class MClientes {
 		return correo;
 	}
 	public void setCorreo(String correo) {
-		correo = correo;
+		this.correo = correo;
 	}
 	public int getTelefono() {
 		return telefono;
 	}
 	public void setTelefono(int telefono) {
-		telefono = telefono;
+		this.telefono = telefono;
 	}
 	public MDireccion getDir() {
 		return dir;

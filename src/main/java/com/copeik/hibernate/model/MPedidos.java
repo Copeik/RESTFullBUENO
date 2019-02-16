@@ -24,7 +24,7 @@ public class MPedidos implements Serializable{
 
 	public int cod_pedido;
 
-	public MClientes cod_cliente;
+	public MClientes codcliente;
 
 	public Date fecha;
 
@@ -39,7 +39,7 @@ public class MPedidos implements Serializable{
 	
 	public MPedidos(Pedidos p) {
 		this.cod_pedido = p.codpedido;
-		this.cod_cliente = new MClientes(p.codcliente);
+		this.codcliente = new MClientes(p.cliente);
 		this.fecha = p.fecha;
 		this.entregado = p.entregado;
 		this.descripcion = p.descripcion;
@@ -51,11 +51,11 @@ public class MPedidos implements Serializable{
 	
 	
 
-	public MPedidos(int cod_pedido, MClientes cod_cliente, Date fecha,
+	public MPedidos(int cod_pedido, MClientes codcliente, Date fecha,
 			boolean entregado, String descripcion, double total, MTrabajadores cod_trab) {
 		super();
 		this.cod_pedido = cod_pedido;
-		this.cod_cliente = cod_cliente;
+		this.codcliente = codcliente;
 		this.fecha = fecha;
 		this.entregado = entregado;
 		this.descripcion = descripcion;
@@ -86,8 +86,8 @@ public class MPedidos implements Serializable{
 		this.cod_pedido = cod_pedido;
 	}
 
-	public MClientes getCod_cliente() {
-		return cod_cliente;
+	public MClientes getcodcliente() {
+		return codcliente;
 	}
 	public String getDescripcion() {
 		return descripcion;
@@ -96,8 +96,8 @@ public class MPedidos implements Serializable{
 		this.descripcion = descripcion;
 	}
 
-	public void setCod_cliente(MClientes cod_cliente) {
-		this.cod_cliente = cod_cliente;
+	public void setcodcliente(MClientes codcliente) {
+		this.codcliente = codcliente;
 	}
 
 

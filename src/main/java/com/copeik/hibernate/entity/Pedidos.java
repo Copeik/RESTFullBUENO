@@ -30,7 +30,7 @@ public class Pedidos implements Serializable{
 	public int codpedido;
 	@OneToOne   
 	@JoinColumn(name="codcliente")
-	public Clientes codcliente;
+	public Clientes cliente;
 	@NotNull(message = "El  no puede ser nulo")
 	@Column(name="fecha")
 	@Temporal(TemporalType.DATE)
@@ -52,7 +52,7 @@ public class Pedidos implements Serializable{
 
 	public Pedidos(Clientes cod_cliente, Date fecha,
 			boolean entregado, String descripcion, double total, Trabajadores cod_trab) {
-		this.codcliente = cod_cliente;
+		this.cliente = cod_cliente;
 		this.fecha = fecha;
 		this.entregado = entregado;
 		this.descripcion = descripcion;
@@ -84,7 +84,7 @@ public class Pedidos implements Serializable{
 	}
 
 	public Clientes getCod_cliente() {
-		return codcliente;
+		return cliente;
 	}
 	public String getDescripcion() {
 		return descripcion;
@@ -94,7 +94,7 @@ public class Pedidos implements Serializable{
 	}
 
 	public void setCod_cliente(Clientes cod_cliente) {
-		this.codcliente = cod_cliente;
+		this.cliente = cod_cliente;
 	}
 
 

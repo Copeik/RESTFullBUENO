@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.copeik.hibernate.converter.DireccionConvertidor;
@@ -41,9 +42,9 @@ public class DireccionController {
 		return service.actualizar(direccion);
 	}
 	
-	@DeleteMapping("/direccion/{cod_art}")
-	public boolean borrar(@PathVariable("cor_art") int cod_art) {
-		return service.borrar(cod_art);
+	@DeleteMapping("/direccion")
+	public boolean borrar(@RequestParam(value="cod_dir", required=true) int cod_dir) {
+		return service.borrar(cod_dir);
 		
 	}
 	
