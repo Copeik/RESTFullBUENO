@@ -33,10 +33,10 @@ public class ArticulosController {
 	@Qualifier("ArticuloServicio")
 	ArticuloService service;
 	
-	/*@PutMapping("/articulo")
+	@PutMapping("/articuloBODY")
 	public boolean Actualizar(@RequestBody @Valid Articulos articulo) {
 		return service.crear(articulo);
-	}*/
+	}
 	@PutMapping("/articulo")
     public boolean Actualizar2 (@RequestParam(value="codarticulo", required=true) int codarticulo,@RequestParam(value="cantidad", required=true) int cantidad, 
             @RequestParam(value="nombre", required=true) String nombre,@RequestParam(value="descripcion", required=true) String descripcion, 
@@ -49,8 +49,13 @@ public class ArticulosController {
 	@PostMapping("/articulo")
     public boolean Aniadir2 (@RequestParam(value="cantidad", required=true) int cantidad, 
             @RequestParam(value="nombre", required=true) String nombre,@RequestParam(value="descripcion", required=true) String descripcion, 
-            @RequestParam(value="precio_art", required=true) double precio_art,@RequestParam(value="codigo_t", required=true) int codigo_t, 
-            @RequestParam(value="nombre_t", required=true) String nombre_t ,@RequestParam(value="fecha_cad", required=true) Date fecha_cad) {    
+            @RequestParam(value="precio_art", required=true) double precio_art,@RequestParam(value="codigo_t", required=true) int codigo_t,@RequestParam(value="fecha_cad", required=true) Date fecha_cad) {    
+		String nombre_t = null;
+		if (codigo_t ==1) {
+			 nombre_t = "Plantas";
+		}else {
+			 nombre_t = "No plantas";
+		}
 		Articulos art = new Articulos(cantidad, nombre , descripcion , precio_art ,new Tipo(codigo_t,nombre_t),fecha_cad );
 		return service.actualizar(art);
 	}
