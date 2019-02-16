@@ -1,5 +1,6 @@
 package com.copeik.hibernate.controller;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -13,10 +14,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.copeik.hibernate.converter.ArticuloConvertidor;
 import com.copeik.hibernate.entity.Articulos;
+import com.copeik.hibernate.entity.Tipo;
+import com.copeik.hibernate.entity.Trabajadores;
 import com.copeik.hibernate.model.MArticulos;
 import com.copeik.hibernate.repository.ArticulosRepositorio;
 import com.copeik.hibernate.service.ArticuloService;
@@ -30,12 +34,29 @@ public class ArticulosController {
 	ArticuloService service;
 	
 	@PutMapping("/articulo")
-	public boolean Aniadir(@RequestBody @Valid Articulos articulo) {
+	public boolean Actualizar(@RequestBody @Valid Articulos articulo) {
 		return service.crear(articulo);
+	}
+	@PutMapping("/articulo")
+    public boolean Actualizar2 (@RequestParam(value="codarticulo", required=true) int codarticulo,@RequestParam(value="cantidad", required=true) int cantidad, 
+            @RequestParam(value="nombre", required=true) String nombre,@RequestParam(value="descripcion", required=true) String descripcion, 
+            @RequestParam(value="precio_art", required=true) double precio_art,@RequestParam(value="codigo_t", required=true) int codigo_t, 
+            @RequestParam(value="nombre_t", required=true) String nombre_t ,@RequestParam(value="fecha_cad", required=true) Date fecha_cad) {    
+		Articulos art = new Articulos(cantidad, nombre , descripcion , precio_art ,new Tipo(codigo_t,nombre_t),fecha_cad );
+		art.setCodarticulo(codarticulo);
+		return service.crear(art);
+	}
+	@PostMapping("/articulo")
+    public boolean Aniadir2 (@RequestParam(value="cantidad", required=true) int cantidad, 
+            @RequestParam(value="nombre", required=true) String nombre,@RequestParam(value="descripcion", required=true) String descripcion, 
+            @RequestParam(value="precio_art", required=true) double precio_art,@RequestParam(value="codigo_t", required=true) int codigo_t, 
+            @RequestParam(value="nombre_t", required=true) String nombre_t ,@RequestParam(value="fecha_cad", required=true) Date fecha_cad) {    
+		Articulos art = new Articulos(cantidad, nombre , descripcion , precio_art ,new Tipo(codigo_t,nombre_t),fecha_cad );
+		return service.actualizar(art);
 	}
 	
 	@PostMapping("/articulo")
-	public boolean Actualizar(@RequestBody @Valid Articulos articulo) {
+	public boolean Aniadir(@RequestBody @Valid Articulos articulo) {
 		return service.actualizar(articulo);
 	}
 	

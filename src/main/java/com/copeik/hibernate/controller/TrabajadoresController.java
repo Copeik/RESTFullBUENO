@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.copeik.hibernate.converter.TrabajadoresConvertidor;
@@ -32,12 +34,25 @@ public class TrabajadoresController {
 	TrabajadoresService service;
 	
 	@PutMapping("/trabajadores")
-	public boolean Aniadir(@RequestBody @Valid Trabajadores trabajadores) {
+	public boolean Actualizar(@RequestBody @Valid Trabajadores trabajadores) {
 		return service.crear(trabajadores);
 	}
 	
+	@PutMapping("/trabajadores")
+    public boolean Actualizar2 (@RequestParam(value="nombre", required=true) String nombre, 
+            @RequestParam(value="contrasena", required=true) String contrasena) {    
+		Trabajadores trabajadores = new Trabajadores(nombre, contrasena);
+		return service.actualizar(trabajadores);
+	}
+	
 	@PostMapping("/trabajadores")
-	public boolean Actualizar(@RequestBody @Valid Trabajadores trabajadores) {
+    public boolean Aniadir2 (@RequestParam(value="nombre", required=true) String nombre, 
+            @RequestParam(value="contrasena", required=true) String contrasena) {    
+		Trabajadores trabajadores = new Trabajadores(nombre, contrasena);
+		return service.actualizar(trabajadores);
+	}
+	@PostMapping("/trabajadores")
+	public boolean Aniadir(@RequestBody @Valid Trabajadores trabajadores) {
 		return service.actualizar(trabajadores);
 	}
 	
