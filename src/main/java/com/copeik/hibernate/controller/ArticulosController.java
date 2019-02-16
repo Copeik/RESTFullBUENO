@@ -32,11 +32,11 @@ public class ArticulosController {
 	@Autowired
 	@Qualifier("ArticuloServicio")
 	ArticuloService service;
-	/*
+	
 	@PutMapping("/articulo")
 	public boolean Actualizar(@RequestBody @Valid Articulos articulo) {
 		return service.crear(articulo);
-	}*/
+	}
 	@PutMapping("/articulo")
     public boolean Actualizar2 (@RequestParam(value="codarticulo", required=true) int codarticulo,@RequestParam(value="cantidad", required=true) int cantidad, 
             @RequestParam(value="nombre", required=true) String nombre,@RequestParam(value="descripcion", required=true) String descripcion, 
@@ -45,7 +45,7 @@ public class ArticulosController {
 		Articulos art = new Articulos(cantidad, nombre , descripcion , precio_art ,new Tipo(codigo_t,nombre_t),fecha_cad );
 		art.setCodarticulo(codarticulo);
 		return service.crear(art);
-	}/*
+	}
 	@PostMapping("/articulo")
     public boolean Aniadir2 (@RequestParam(value="cantidad", required=true) int cantidad, 
             @RequestParam(value="nombre", required=true) String nombre,@RequestParam(value="descripcion", required=true) String descripcion, 
@@ -53,7 +53,8 @@ public class ArticulosController {
             @RequestParam(value="nombre_t", required=true) String nombre_t ,@RequestParam(value="fecha_cad", required=true) Date fecha_cad) {    
 		Articulos art = new Articulos(cantidad, nombre , descripcion , precio_art ,new Tipo(codigo_t,nombre_t),fecha_cad );
 		return service.actualizar(art);
-	}*/
+	}
+	
 	@PostMapping("/articulo")
 	public boolean Aniadir(@RequestBody @Valid Articulos articulo) {
 		return service.actualizar(articulo);
