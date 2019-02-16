@@ -1,5 +1,6 @@
 package com.copeik.hibernate.controller;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -25,6 +26,8 @@ import com.copeik.hibernate.model.MArticulos;
 import com.copeik.hibernate.repository.ArticulosRepositorio;
 import com.copeik.hibernate.service.ArticuloService;
 
+import groovyjarjarcommonscli.ParseException;
+
 @RestController
 @RequestMapping("/v1")
 public class ArticulosController {
@@ -40,15 +43,6 @@ public class ArticulosController {
 	@PutMapping("/articulo")
     public boolean Actualizar2 (@RequestParam(value="codarticulo", required=true) int codarticulo,@RequestParam(value="cantidad", required=true) int cantidad, 
             @RequestParam(value="nombre", required=true) String nombre,@RequestParam(value="descripcion", required=true) String descripcion, 
-            @RequestParam(value="precio_art", required=true) double precio_art,@RequestParam(value="codigo_t", required=true) int codigo_t, 
-            @RequestParam(value="nombre_t", required=true) String nombre_t ,@RequestParam(value="fecha_cad", required=true) Date fecha_cad) {    
-		Articulos art = new Articulos(cantidad, nombre , descripcion , precio_art ,new Tipo(codigo_t,nombre_t),fecha_cad );
-		art.setCodarticulo(codarticulo);
-		return service.crear(art);
-	}
-	@PostMapping("/articulo")
-    public boolean Aniadir2 (@RequestParam(value="cantidad", required=true) int cantidad, 
-            @RequestParam(value="nombre", required=true) String nombre,@RequestParam(value="descripcion", required=true) String descripcion, 
             @RequestParam(value="precio_art", required=true) double precio_art,@RequestParam(value="codigo_t", required=true) int codigo_t,@RequestParam(value="fecha_cad", required=true) Date fecha_cad) {    
 		String nombre_t = null;
 		if (codigo_t ==1) {
@@ -57,6 +51,24 @@ public class ArticulosController {
 			 nombre_t = "No plantas";
 		}
 		Articulos art = new Articulos(cantidad, nombre , descripcion , precio_art ,new Tipo(codigo_t,nombre_t),fecha_cad );
+		art.setCodarticulo(codarticulo);
+		return service.crear(art);
+	}
+	@PostMapping("/articulo")
+    public boolean Aniadir2 (@RequestParam(value="cantidad", required=true) int cantidad, 
+            @RequestParam(value="nombre", required=true) String nombre,@RequestParam(value="descripcion", required=true) String descripcion, 
+            @RequestParam(value="precio_art", required=true) double precio_art,@RequestParam(value="codigo_t", required=true) int codigo_t,@RequestParam(value="fecha_cad", required=true) String fecha_cad) throws java.text.ParseException {    
+		String nombre_t = null;
+		if (codigo_t ==1) {
+			 nombre_t = "Plantas";
+		}else {
+			 nombre_t = "No plantas";
+		}
+		SimpleDateFormat formatoDelTexto = new SimpleDateFormat("yyyy-MM-dd");
+		;
+		Date fecha_cad2 = null;
+		fecha_cad2 = formatoDelTexto.parse(fecha_cad);
+		Articulos art = new Articulos(cantidad, nombre , descripcion , precio_art ,new Tipo(codigo_t,nombre_t),fecha_cad2 );
 		return service.actualizar(art);
 	}
 	
