@@ -33,13 +33,13 @@ public class DireccionController {
 	DireccionService service;
 	
 	@PutMapping("/direccion")
-	public boolean Aniadir(@RequestBody @Valid Direccion direccion) {
-		return service.crear(direccion);
+	public boolean Actualizar(@RequestBody @Valid Direccion direccion) {
+		return service.actualizar(direccion);
 	}
 	
 	@PostMapping("/direccion")
-	public boolean Actualizar(@RequestBody @Valid Direccion direccion) {
-		return service.actualizar(direccion);
+	public boolean Aniadir(@RequestBody @Valid Direccion direccion) {
+		return service.crear(direccion);
 	}
 	
 	@DeleteMapping("/direccion")

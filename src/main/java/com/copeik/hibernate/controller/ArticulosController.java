@@ -38,7 +38,7 @@ public class ArticulosController {
 	
 	@PutMapping("/articuloBODY")
 	public boolean Actualizar(@RequestBody @Valid Articulos articulo) {
-		return service.crear(articulo);
+		return service.actualizar(articulo);
 	}
 	@PutMapping("/articulo")
     public boolean Actualizar2 (@RequestParam(value="codarticulo", required=true) int codarticulo,@RequestParam(value="cantidad", required=true) int cantidad, 
@@ -52,7 +52,7 @@ public class ArticulosController {
 		}
 		Articulos art = new Articulos(cantidad, nombre , descripcion , precio_art ,new Tipo(codigo_t,nombre_t),fecha_cad );
 		art.setCodarticulo(codarticulo);
-		return service.crear(art);
+		return service.actualizar(art);
 	}
 	@PostMapping("/articulo")
     public boolean Aniadir2 (@RequestParam(value="cantidad", required=true) int cantidad, 
@@ -69,12 +69,12 @@ public class ArticulosController {
 		Date fecha_cad2 = null;
 		fecha_cad2 = formatoDelTexto.parse(fecha_cad);
 		Articulos art = new Articulos(cantidad, nombre , descripcion , precio_art ,new Tipo(codigo_t,nombre_t),fecha_cad2 );
-		return service.actualizar(art);
+		return service.crear(art);
 	}
 	
 	/*@PostMapping("/articulo")
 	public boolean Aniadir(@RequestBody @Valid Articulos articulo) {
-		return service.actualizar(articulo);
+		return service.crear(articulo);
 	}*/
 	
 	@DeleteMapping("/articulo")

@@ -33,13 +33,13 @@ public class ClientesController {
 	ClientesService service;
 	
 	@PutMapping("/clientes")
-	public boolean Aniadir(@RequestBody @Valid Clientes clientes) {
-		return service.crear(clientes);
+	public boolean Actualizar(@RequestBody @Valid Clientes clientes) {
+		return service.actualizar(clientes);
 	}
 	
 	@PostMapping("/clientes")
-	public boolean Actualizar(@RequestBody @Valid Clientes clientes) {
-		return service.actualizar(clientes);
+	public boolean Aniadir(@RequestBody @Valid Clientes clientes) {
+		return service.crear(clientes);
 	}
 	
 	@DeleteMapping("/clientes")

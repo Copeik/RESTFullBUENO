@@ -38,8 +38,8 @@ public class PedidosController {
 	PedidosService service;
 	
 	@PutMapping("/pedidos")
-	public boolean Aniadir(@RequestBody @Valid Pedidos pedidos) {
-		return service.crear(pedidos);
+	public boolean Actualizar(@RequestBody @Valid Pedidos pedidos) {
+		return service.actualizar(pedidos);
 	}
 	
 	@PostMapping("/pedidos")
@@ -58,12 +58,12 @@ public class PedidosController {
 		    		pedidos.setCod_pedido(codpedido);
 				}
 		    	
-		    	return service.actualizar(pedidos);
+		    	return service.crear(pedidos);
 	
 	}
 	@PostMapping("/pedidosBODY")
-	public boolean Actualizar(@RequestBody @Valid Pedidos pedidos) {
-		return service.actualizar(pedidos);
+	public boolean Aniadir(@RequestBody @Valid Pedidos pedidos) {
+		return service.crear(pedidos);
 	}
 	
 	@DeleteMapping("/pedidos")

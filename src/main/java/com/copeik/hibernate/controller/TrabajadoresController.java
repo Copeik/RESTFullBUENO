@@ -35,7 +35,7 @@ public class TrabajadoresController {
 	
 	/*@PutMapping("/trabajadores")
 	public boolean Actualizar(@RequestBody @Valid Trabajadores trabajadores) {
-		return service.crear(trabajadores);
+		return service.actualizar(trabajadores);
 	}*/
 	
 	@PutMapping("/trabajadores")
@@ -49,11 +49,11 @@ public class TrabajadoresController {
     public boolean Aniadir2 (@RequestParam(value="nombre", required=true) String nombre, 
             @RequestParam(value="contrasena", required=true) String contrasena) {    
 		Trabajadores trabajadores = new Trabajadores(nombre, contrasena);
-		return service.actualizar(trabajadores);
+		return service.crear(trabajadores);
 	}
 	/*@PostMapping("/trabajadores")
 	public boolean Aniadir(@RequestBody @Valid Trabajadores trabajadores) {
-		return service.actualizar(trabajadores);
+		return service.crear(trabajadores);
 	}*/
 	
 	@DeleteMapping("/trabajadores")

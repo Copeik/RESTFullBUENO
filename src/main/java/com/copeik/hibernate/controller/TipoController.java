@@ -33,13 +33,13 @@ public class TipoController {
 	TipoService service;
 	
 	@PutMapping("/tipo")
-	public boolean Aniadir(@RequestBody @Valid Tipo tipo) {
-		return service.crear(tipo);
+	public boolean Actualizar(@RequestBody @Valid Tipo tipo) {
+		return service.actualizar(tipo);
 	}
 	
 	@PostMapping("/tipo")
-	public boolean Actualizar(@RequestBody @Valid Tipo tipo) {
-		return service.actualizar(tipo);
+	public boolean Aniadir(@RequestBody @Valid Tipo tipo) {
+		return service.crear(tipo);
 	}
 	
 	@DeleteMapping("/tipo")
