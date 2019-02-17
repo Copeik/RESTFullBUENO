@@ -69,7 +69,9 @@ public class ArticulosController {
 		Date fecha_cad2 = null;
 		fecha_cad2 = formatoDelTexto.parse(fecha_cad);
 		Articulos art = new Articulos(cantidad, nombre , descripcion , precio_art ,new Tipo(codigo_t,nombre_t),fecha_cad2 );
-		art.setCodarticulo(codarticulo);
+		if (codarticulo != 0) {
+			art.setCodarticulo(codarticulo);
+		}
 		return service.crear(art);
 	}
 	@PostMapping("/articulo")
