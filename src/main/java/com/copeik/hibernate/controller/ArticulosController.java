@@ -54,6 +54,24 @@ public class ArticulosController {
 		art.setCodarticulo(codarticulo);
 		return service.actualizar(art);
 	}
+	@PostMapping("/articuloactualizar")
+    public boolean Actualizar (@RequestParam(value="codarticulo", required=true) int codarticulo,@RequestParam(value="cantidad", required=true) int cantidad, 
+            @RequestParam(value="nombre", required=true) String nombre,@RequestParam(value="descripcion", required=true) String descripcion, 
+            @RequestParam(value="precio_art", required=true) double precio_art,@RequestParam(value="codigo_t", required=true) int codigo_t,@RequestParam(value="fecha_cad", required=true) String fecha_cad) throws java.text.ParseException {    
+		String nombre_t = null;
+		if (codigo_t ==1) {
+			 nombre_t = "Plantas";
+		}else {
+			 nombre_t = "No plantas";
+		}
+		SimpleDateFormat formatoDelTexto = new SimpleDateFormat("yyyy-MM-dd");
+		;
+		Date fecha_cad2 = null;
+		fecha_cad2 = formatoDelTexto.parse(fecha_cad);
+		Articulos art = new Articulos(cantidad, nombre , descripcion , precio_art ,new Tipo(codigo_t,nombre_t),fecha_cad2 );
+		art.setCodarticulo(codarticulo);
+		return service.crear(art);
+	}
 	@PostMapping("/articulo")
     public boolean Aniadir2 (@RequestParam(value="cantidad", required=true) int cantidad, 
             @RequestParam(value="nombre", required=true) String nombre,@RequestParam(value="descripcion", required=true) String descripcion, 
