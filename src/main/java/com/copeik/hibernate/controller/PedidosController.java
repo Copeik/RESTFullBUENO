@@ -43,7 +43,7 @@ public class PedidosController {
 	}
 	
 	@PostMapping("/pedidos")
-		    public boolean Aniadir2 (@RequestParam(value="cliente", required=true) int cliente, 
+		    public boolean Aniadir2 (@RequestParam(value="codpedido", required=false) int codpedido,@RequestParam(value="cliente", required=true) int cliente, 
 		            @RequestParam(value="fecha", required=true) String fecha,@RequestParam(value="entregado", required=true) boolean entregado, 
 		            @RequestParam(value="descripcion", required=true) String descripcion,@RequestParam(value="total", required=true) double total,@RequestParam(value="codtrabajador", required=true) int codtrabajador) throws ParseException {
 		Clientes a = new Clientes();
@@ -54,13 +54,17 @@ public class PedidosController {
 		Date fecha_cad2 = null;
 		fecha_cad2 = formatoDelTexto.parse(fecha);
 		    	Pedidos pedidos = new Pedidos(a,fecha_cad2,entregado,descripcion,total,tra);
+		    	if (codpedido != 0) {
+		    		pedidos.setCod_pedido(codpedido);
+				}
+		    	
 		    	return service.actualizar(pedidos);
 	
 	}
-	//@PostMapping("/pedidos")
-	//public boolean Actualizar(@RequestBody @Valid Pedidos pedidos) {
-	//	return service.actualizar(pedidos);
-	//}
+	@PostMapping("/pedidosBODY")
+	public boolean Actualizar(@RequestBody @Valid Pedidos pedidos) {
+		return service.actualizar(pedidos);
+	}
 	
 	@DeleteMapping("/pedidos")
 	public boolean borrar(@RequestParam(value="cod_pedido", required=true) int cod_pedido) {
