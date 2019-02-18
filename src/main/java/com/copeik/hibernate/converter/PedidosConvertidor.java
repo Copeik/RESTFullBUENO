@@ -12,6 +12,9 @@ import com.copeik.hibernate.model.MPedidos;
 @Component("pedidosConvertidor")
 public class PedidosConvertidor {
 
+	/*
+	 * Esta clase se encarga de convertir la entidad al modelo
+	 */
 	public List<MPedidos> convertirLista(List<Pedidos> arts){
 		List<MPedidos> mpedidos = new ArrayList<>();
 		

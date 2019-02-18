@@ -27,6 +27,9 @@ import com.copeik.hibernate.service.ClientesService;
 @RestController
 @RequestMapping("/v1")
 public class ClientesController {
+	/*
+	 * Esta clase controla las acciones con la base de datos
+	 */
 	
 	@Autowired
 	@Qualifier("ClientesServicio")

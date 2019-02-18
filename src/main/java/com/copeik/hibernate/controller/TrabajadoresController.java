@@ -29,6 +29,10 @@ import com.copeik.hibernate.service.TrabajadoresService;
 @RequestMapping("/v1")
 public class TrabajadoresController {
 	
+	/*
+	 * Esta clase controla las acciones con la base de datos
+	 */
+	
 	@Autowired
 	@Qualifier("TrabajadoresServicio")
 	TrabajadoresService service;

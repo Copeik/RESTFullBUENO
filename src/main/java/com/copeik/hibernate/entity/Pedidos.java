@@ -22,6 +22,10 @@ import javax.validation.constraints.NotNull;
 @Table(name= "Pedidos") 
 public class Pedidos implements Serializable{
 	
+	/*
+	 * Entidades , pojos de la base de datos
+	 */
+	
 	private static final long serialVersionUID =1L;
 	
 	@GeneratedValue

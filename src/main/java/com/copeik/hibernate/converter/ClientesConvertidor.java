@@ -12,6 +12,9 @@ import com.copeik.hibernate.model.MClientes;
 @Component("clientesConvertidor")
 public class ClientesConvertidor {
 
+	/*
+	 * Esta clase se encarga de convertir la entidad al modelo
+	 */
 	public List<MClientes> convertirLista(List<Clientes> arts){
 		List<MClientes> mcliente = new ArrayList<>();
 		

@@ -33,6 +33,10 @@ import com.copeik.hibernate.service.PedidosService;
 @RequestMapping("/v1")
 public class PedidosController {
 	
+	/*
+	 * Esta clase controla las acciones con la base de datos
+	 */
+	
 	@Autowired
 	@Qualifier("PedidosServicio")
 	PedidosService service;

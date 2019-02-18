@@ -27,6 +27,10 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @Entity  
 public class Articulos implements Serializable{
 	
+	/*
+	 * Entidades , pojos de la base de datos
+	 */
+	
 	private static final long serialVersionUID =1L;
 	
 	@GeneratedValue

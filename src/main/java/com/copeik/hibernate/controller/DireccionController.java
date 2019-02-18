@@ -27,7 +27,9 @@ import com.copeik.hibernate.service.DireccionService;
 @RestController
 @RequestMapping("/v1")
 public class DireccionController {
-	
+	/*
+	 * Esta clase controla las acciones con la base de datos
+	 */
 	@Autowired
 	@Qualifier("DireccionServicio")
 	DireccionService service;

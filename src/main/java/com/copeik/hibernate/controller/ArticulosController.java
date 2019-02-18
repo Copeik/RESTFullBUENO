@@ -32,6 +32,10 @@ import groovyjarjarcommonscli.ParseException;
 @RequestMapping("/v1")
 public class ArticulosController {
 	
+	/*
+	 * Esta clase controla las acciones con la base de datos
+	 */
+	
 	@Autowired
 	@Qualifier("ArticuloServicio")
 	ArticuloService service;

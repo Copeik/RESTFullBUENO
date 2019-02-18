@@ -10,6 +10,11 @@ import javax.persistence.Table;
 @Table(name= "Trabajadores") 
 public class Trabajadores {
 	
+	/*
+	 * Entidades , pojos de la base de datos
+	 */
+	
+	
 	private static final long serialVersionUID =1L;
 	@GeneratedValue
 	@Id

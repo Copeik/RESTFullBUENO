@@ -11,6 +11,9 @@ import com.copeik.hibernate.model.MTipo;
 @Component("tipoConvertidor")
 public class TipoConvertidor {
 
+	/*
+	 * Esta clase se encarga de convertir la entidad al modelo
+	 */
 	public List<MTipo> convertirLista(List<Tipo> arts){
 		List<MTipo> mtipo = new ArrayList<>();
 		

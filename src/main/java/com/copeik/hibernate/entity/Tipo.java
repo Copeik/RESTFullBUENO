@@ -10,6 +10,11 @@ import javax.persistence.Table;
 @Table(name= "Tipo")
 public class Tipo {
 	
+	/*
+	 * Entidades , pojos de la base de datos
+	 */
+	
+	
 	private static final long serialVersionUID =1L;
 
 	@Id

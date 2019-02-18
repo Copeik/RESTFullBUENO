@@ -28,6 +28,10 @@ import com.copeik.hibernate.service.TipoService;
 @RequestMapping("/v1")
 public class TipoController {
 	
+	/*
+	 * Esta clase controla las acciones con la base de datos
+	 */
+	
 	@Autowired
 	@Qualifier("TipoServicio")
 	TipoService service;

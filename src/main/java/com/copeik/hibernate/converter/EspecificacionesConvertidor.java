@@ -11,6 +11,9 @@ import com.copeik.hibernate.model.MEspecificaciones;
 @Component("especificacionesConvertidor")
 public class EspecificacionesConvertidor {
 
+	/*
+	 * Esta clase se encarga de convertir la entidad al modelo
+	 */
 	public List<MEspecificaciones> convertirLista(List<Especificaciones> arts){
 		List<MEspecificaciones> mespecificaciones = new ArrayList<>();
 		

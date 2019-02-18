@@ -31,6 +31,10 @@ import com.copeik.hibernate.service.EspecificacionesService;
 @RequestMapping("/v1")
 public class EspecificacionesController {
 	
+	/*
+	 * Esta clase controla las acciones con la base de datos
+	 */
+	
 	@Autowired
 	@Qualifier("EspecificacionesServicio")
 	EspecificacionesService service;

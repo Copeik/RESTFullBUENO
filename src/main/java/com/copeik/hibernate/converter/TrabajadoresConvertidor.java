@@ -11,6 +11,9 @@ import com.copeik.hibernate.model.MTrabajadores;
 @Component("trabajadoresConvertidor")
 public class TrabajadoresConvertidor {
 
+	/*
+	 * Esta clase se encarga de convertir la entidad al modelo
+	 */
 	public List<MTrabajadores> convertirLista(List<Trabajadores> arts){
 		List<MTrabajadores> mtrabajadores = new ArrayList<>();
 		

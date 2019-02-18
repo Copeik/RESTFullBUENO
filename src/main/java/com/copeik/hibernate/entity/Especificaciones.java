@@ -19,6 +19,11 @@ import javax.persistence.Table;
 @Entity  
 @Table(name= "Especificaciones") 
 public class Especificaciones implements Serializable{
+	
+	/*
+	 * Entidades , pojos de la base de datos
+	 */
+	
 
 	private static final long serialVersionUID =1L;
 	

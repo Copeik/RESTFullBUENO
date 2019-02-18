@@ -10,6 +10,10 @@ import com.copeik.hibernate.model.MArticulos;
 
 @Component("articulosConvertidor")
 public class ArticuloConvertidor {
+	
+	/*
+	 * Esta clase se encarga de convertir la entidad al modelo
+	 */
 
 	public List<MArticulos> convertirLista(List<Articulos> arts){
 		List<MArticulos> marticulo = new ArrayList<>();

@@ -11,6 +11,9 @@ import com.copeik.hibernate.model.MDireccion;
 @Component("direccionConvertidor")
 public class DireccionConvertidor {
 
+	/*
+	 * Esta clase se encarga de convertir la entidad al modelo
+	 */
 	public List<MDireccion> convertirLista(List<Direccion> arts){
 		List<MDireccion> mdireccion = new ArrayList<>();
 		
