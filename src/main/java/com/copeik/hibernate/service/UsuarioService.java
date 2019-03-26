@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -13,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.copeik.hibernate.entity.Usuario;
-import com.copeik.hibernate.repository.GestorUsuario;import antlr.collections.List;
+import com.copeik.hibernate.repository.GestorUsuario;
 
 @Service("usuarioService")
 public class UsuarioService implements UserDetailsService {
@@ -24,14 +25,18 @@ public class UsuarioService implements UserDetailsService {
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		Usuario user=repo.findByUsuario(username);
-		return new User(user.getUsuario(),user.getContrasena(),user.isActivo(),user.isActivo(), user.isActivo(), user.isActivo(),buildgrante(user.getRol()));
+		Usuario user = repo.findByUsuario(username);
+		return new User(user.getUsuario(), user.getContrasena(), 
+				user.isActivo(), user.isActivo(), user.isActivo(), user.isActivo(), buildgrante(user.getRol()) );
 	}
+	
 	public List<GrantedAuthority> buildgrante(byte rol){
-		String[] roles= {"LECTOR","USUARIO","ADMINISTRADOR"};
+		String[] roles = {"LECTOR","USUARIO","ADMINISTRADOR"};
 		List<GrantedAuthority> auths = new ArrayList<>();
-		
-		return null;
+		for(int i = 0; i<rol; i++) {
+			auths.add(new SimpleGrantedAuthority(roles[i]));
+		}
+		return auths;
 	}
 
 }
