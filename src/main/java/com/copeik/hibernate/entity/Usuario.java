@@ -28,6 +28,18 @@ public class Usuario implements Serializable {
 	
 	@Column
 	private boolean activo;
+	
+	public Usuario() {
+
+	}
+
+	public Usuario(String usuario, String contrasena, byte rol, boolean activo) {
+
+		this.usuario = usuario;
+		this.contrasena = contrasena;
+		this.rol = rol;
+		this.activo = activo;
+	}
 
 	public long getId() {
 		return id;

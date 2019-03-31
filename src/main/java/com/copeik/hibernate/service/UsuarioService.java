@@ -13,7 +13,9 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.copeik.hibernate.entity.Trabajadores;
 import com.copeik.hibernate.entity.Usuario;
+import com.copeik.hibernate.model.MTrabajadores;
 import com.copeik.hibernate.repository.GestorUsuario;
 
 @Service("usuarioService")
@@ -38,5 +40,35 @@ public class UsuarioService implements UserDetailsService {
 		}
 		return auths;
 	}
+	
+	
+	public boolean crear(Usuario trabajadores) {
+		repo.save(trabajadores);
+		return true;
+}
+
+public boolean actualizar(Usuario trabajadores) {
+	repo.save(trabajadores);
+	return true;
+}
+
+public boolean borrar(String usuario) {
+	try {
+		Usuario art = repo.findByUsuario(usuario);
+		repo.delete(art);
+		return true;
+	} catch (Exception e) {
+		return false;
+	}
+}
+	
+	public List<Usuario> obtener(){
+		return repo.findAll();
+	}
+
+public Usuario obtenerPorNombre(String usuario){
+	return repo.findByUsuario(usuario);
+}
+	
 
 }

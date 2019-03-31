@@ -9,4 +9,6 @@ import com.copeik.hibernate.entity.Usuario;
 public interface GestorUsuario extends JpaRepository<Usuario, Serializable> {
 
 	public abstract Usuario findByUsuario(String usuario);
+
+	
 }
