@@ -12,10 +12,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import com.copeik.hibernate.entity.Trabajadores;
 import com.copeik.hibernate.entity.Usuario;
-import com.copeik.hibernate.model.MTrabajadores;
 import com.copeik.hibernate.repository.GestorUsuario;
 
 @Service("usuarioService")
@@ -29,7 +26,7 @@ public class UsuarioService implements UserDetailsService {
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		Usuario user = repo.findByUsuario(username);
 		return new User(user.getUsuario(), user.getContrasena(), 
-				user.isActivo(), user.isActivo(), user.isActivo(), user.isActivo(), buildgrante(user.getRol()) );
+				user.isActivo(), user.isActivo(), user.isActivo(), user.isActivo(), buildgrante((byte)user.getRol().getId_rol()) );
 	}
 	
 	public List<GrantedAuthority> buildgrante(byte rol){
@@ -47,14 +44,14 @@ public class UsuarioService implements UserDetailsService {
 		return true;
 }
 
-public boolean actualizar(Usuario trabajadores) {
-	repo.save(trabajadores);
+public boolean actualizar(Usuario usuario) {
+	repo.save(usuario);
 	return true;
 }
 
-public boolean borrar(String usuario) {
+public boolean borrar(long usuario) {
 	try {
-		Usuario art = repo.findByUsuario(usuario);
+		Usuario art = repo.findById(usuario);
 		repo.delete(art);
 		return true;
 	} catch (Exception e) {

@@ -6,13 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Service;
-
-import com.copeik.hibernate.converter.PedidosConvertidor;
 import com.copeik.hibernate.entity.Articulos;
 import com.copeik.hibernate.entity.Pedidos;
-import com.copeik.hibernate.model.MArticulos;
-import com.copeik.hibernate.model.MClientes;
-import com.copeik.hibernate.model.MPedidos;
 import com.copeik.hibernate.repository.PedidosRepositorio;
 
 @Service("PedidosServicio")
@@ -21,10 +16,6 @@ public class PedidosService {
 	@Autowired
 	@Qualifier("pedidosRepositorio")
 	private PedidosRepositorio repositorio;
-	
-	@Autowired
-	@Qualifier("pedidosConvertidor")
-	private PedidosConvertidor convertidor;
 	
 	public boolean crear(Pedidos pedidos) {
 		
@@ -50,12 +41,12 @@ public class PedidosService {
 		}
 	}
 	
-	public List<MPedidos> obtener(){
-		return convertidor.convertirLista(repositorio.findAll());
+	public List<Pedidos> obtener(){
+		return repositorio.findAll();
 	}
 	
-	public List<MPedidos> obtenerPorNombre(int cod_cliente){
-		return convertidor.convertirLista(repositorio.findByCodpedido(cod_cliente));
+	public List<Pedidos> obtenerPorNombre(int cod_cliente){
+		return repositorio.findByCodpedido(cod_cliente);
 	}
 
 	

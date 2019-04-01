@@ -15,12 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.copeik.hibernate.converter.DireccionConvertidor;
-import com.copeik.hibernate.entity.Clientes;
 import com.copeik.hibernate.entity.Direccion;
-import com.copeik.hibernate.model.MArticulos;
-import com.copeik.hibernate.model.MDireccion;
 import com.copeik.hibernate.repository.DireccionRepositorio;
 import com.copeik.hibernate.service.DireccionService;
 
@@ -51,7 +46,7 @@ public class DireccionController {
 	}
 	
 	@GetMapping("/direccion")
-	public List<MDireccion> obtenerLista(){
+	public List<Direccion> obtenerLista(){
 		return service.obtener();
 	}
 }

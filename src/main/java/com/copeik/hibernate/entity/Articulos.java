@@ -1,26 +1,17 @@
 package com.copeik.hibernate.entity;
 
 import java.io.Serializable;
-
-import java.time.LocalDate;
 import java.util.Date;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 
 @Table(name= "Articulos") 
@@ -43,16 +34,16 @@ public class Articulos implements Serializable{
 	public String nombre;
 	@Column(name="descripcion")
 	public String descripcion;
-	@Column(name="precio_art")
-	public double precio_art;
+	@Column(name="precio_articulo")
+	public double precio_articulo;
 	@ManyToOne()  
-	@JoinColumn(name = "codigo_t")
+	@JoinColumn(name = "codigo_tipo")
 	@NotNull(message = "El tipo no puede ser nulo")
-	public Tipo tipo;
+	public Tipo codigo_tipo;
 	@NotNull(message = "El  no puede ser nulo")
-	@Column(name="fecha_cad")
+	@Column(name="fecha_caducidad")
 	@Temporal(TemporalType.DATE)
-	public Date fecha_cad;
+	public Date fecha_caducidad;
 	
 	
 
@@ -65,9 +56,9 @@ public class Articulos implements Serializable{
 		this.cantidad = cantidad;
 		this.nombre = nombre;
 		this.descripcion = descripcion;
-		this.precio_art = precio_art;
-		this.tipo = tipo;
-		this.fecha_cad = fecha_cad;
+		this.precio_articulo = precio_art;
+		this.codigo_tipo = tipo;
+		this.fecha_caducidad = fecha_cad;
 	}
 
 	public int getCodarticulo() {
@@ -79,19 +70,19 @@ public class Articulos implements Serializable{
 	}
 
 	public Tipo getTipo() {
-		return tipo;
+		return codigo_tipo;
 	}
 
 	public void setTipo(Tipo tipo) {
-		this.tipo = tipo;
+		this.codigo_tipo = tipo;
 	}
 
 	public Date getFecha_cad() {
-		return fecha_cad;
+		return fecha_caducidad;
 	}
 
 	public void setFecha_cad(Date fecha_cad) {
-		this.fecha_cad = fecha_cad;
+		this.fecha_caducidad = fecha_cad;
 	}
 
 	public int getCantidad() {
@@ -113,10 +104,10 @@ public class Articulos implements Serializable{
 		this.descripcion = descripcion;
 	}
 	public double getPrecio_art() {
-		return precio_art;
+		return precio_articulo;
 	}
 	public void setPrecio_art(double precio_art) {
-		this.precio_art = precio_art;
+		this.precio_articulo = precio_art;
 	}
 
 	

@@ -11,22 +11,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.copeik.hibernate.converter.PedidosConvertidor;
-import com.copeik.hibernate.entity.Clientes;
-import com.copeik.hibernate.entity.Especificaciones;
 import com.copeik.hibernate.entity.Pedidos;
 import com.copeik.hibernate.entity.Trabajadores;
-import com.copeik.hibernate.model.MArticulos;
-import com.copeik.hibernate.model.MPedidos;
-import com.copeik.hibernate.repository.PedidosRepositorio;
+import com.copeik.hibernate.entity.Usuario;
 import com.copeik.hibernate.service.PedidosService;
 
 @RestController
@@ -50,16 +43,16 @@ public class PedidosController {
 		    public boolean Actualizar2 (@RequestParam(value="codpedido", required=false) int codpedido,@RequestParam(value="cliente", required=true) int cliente, 
 		            @RequestParam(value="fecha", required=true) String fecha,@RequestParam(value="entregado", required=true) boolean entregado, 
 		            @RequestParam(value="descripcion", required=true) String descripcion,@RequestParam(value="total", required=true) double total,@RequestParam(value="codtrabajador", required=true) int codtrabajador) throws ParseException {
-		Clientes a = new Clientes();
-		a.setCod_cliente(cliente);
+		Usuario a = new Usuario();
+		a.setId(cliente);
 		Trabajadores tra = new Trabajadores();
 		tra.setCod_trabajador(codtrabajador);
 		SimpleDateFormat formatoDelTexto = new SimpleDateFormat("yyyy-MM-dd");
 		Date fecha_cad2 = null;
 		fecha_cad2 = formatoDelTexto.parse(fecha);
-		    	Pedidos pedidos = new Pedidos(a,fecha_cad2,entregado,descripcion,total,tra);
+		    	Pedidos pedidos = new Pedidos(a,fecha_cad2,entregado,descripcion,total);
 		    	if (codpedido != 0) {
-		    		pedidos.setCod_pedido(codpedido);
+		    		pedidos.setCodpedido(codpedido);
 				}
 		    	
 		    	return service.crear(pedidos);
@@ -69,14 +62,14 @@ public class PedidosController {
     public boolean Aniadir (@RequestParam(value="cliente", required=true) int cliente, 
             @RequestParam(value="fecha", required=true) String fecha,@RequestParam(value="entregado", required=true) boolean entregado, 
             @RequestParam(value="descripcion", required=true) String descripcion,@RequestParam(value="total", required=true) double total,@RequestParam(value="codtrabajador", required=true) int codtrabajador) throws ParseException {
-Clientes a = new Clientes();
-a.setCod_cliente(cliente);
+		Usuario a = new Usuario();
+a.setId(cliente);
 Trabajadores tra = new Trabajadores();
 tra.setCod_trabajador(codtrabajador);
 SimpleDateFormat formatoDelTexto = new SimpleDateFormat("yyyy-MM-dd");
 Date fecha_cad2 = null;
 fecha_cad2 = formatoDelTexto.parse(fecha);
-    	Pedidos pedidos = new Pedidos(a,fecha_cad2,entregado,descripcion,total,tra);
+    	Pedidos pedidos = new Pedidos(a,fecha_cad2,entregado,descripcion,total);
    	
     	return service.crear(pedidos);
 }
@@ -93,7 +86,7 @@ fecha_cad2 = formatoDelTexto.parse(fecha);
 	}
 	
 	@GetMapping("/pedidos")
-	public List<MPedidos> obtenerLista(){
+	public List<Pedidos> obtenerLista(){
 		return service.obtener();
 	}
 }

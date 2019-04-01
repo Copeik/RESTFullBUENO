@@ -17,12 +17,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.copeik.hibernate.converter.TrabajadoresConvertidor;
 import com.copeik.hibernate.entity.Tipo;
 import com.copeik.hibernate.entity.Trabajadores;
-import com.copeik.hibernate.model.MArticulos;
-import com.copeik.hibernate.model.MTrabajadores;
 import com.copeik.hibernate.repository.TrabajadoresRepositorio;
 import com.copeik.hibernate.service.TrabajadoresService;
 
@@ -70,7 +66,7 @@ public class TrabajadoresController {
 	}
 	
 	@GetMapping("/trabajadores")
-	public List<MTrabajadores> obtenerLista(){
+	public List<Trabajadores> obtenerLista(){
 		return service.obtener();
 	}
 }

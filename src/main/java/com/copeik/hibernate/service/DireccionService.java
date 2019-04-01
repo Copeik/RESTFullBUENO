@@ -6,12 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Service;
-
-import com.copeik.hibernate.converter.DireccionConvertidor;
 import com.copeik.hibernate.entity.Articulos;
 import com.copeik.hibernate.entity.Direccion;
-import com.copeik.hibernate.model.MArticulos;
-import com.copeik.hibernate.model.MDireccion;
 import com.copeik.hibernate.repository.DireccionRepositorio;
 
 @Service("DireccionServicio")
@@ -21,9 +17,6 @@ public class DireccionService {
 	@Qualifier("direccionRepositorio")
 	private DireccionRepositorio repositorio;
 	
-	@Autowired
-	@Qualifier("direccionConvertidor")
-	private DireccionConvertidor convertidor;
 	
 	public boolean crear(Direccion direccion) {
 		
@@ -49,7 +42,7 @@ public class DireccionService {
 		}
 	}
 	
-	public List<MDireccion> obtener(){
-		return convertidor.convertirLista(repositorio.findAll());
+	public List<Direccion> obtener(){
+		return repositorio.findAll();
 	}
 }
