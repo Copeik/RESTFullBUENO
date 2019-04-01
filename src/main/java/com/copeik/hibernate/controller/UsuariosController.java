@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.copeik.hibernate.entity.Usuario;
 import com.copeik.hibernate.service.UsuarioService;
@@ -34,16 +35,12 @@ public class UsuariosController {
 	
 	@PutMapping("/usuario")
     public boolean Actualizar (@RequestBody @Valid Usuario cliente) {  
-		
-		Usuario usuario = new Usuario(cliente.getUsuario(), cliente.getContrasena(), cliente.getRol(), true, cliente.getCorreo(), cliente.getTelefono(), cliente.getDir());
-		return service.actualizar(usuario);
+		return service.actualizar(cliente);
 	}
 	
 	@PostMapping("/usuario")
     public boolean Aniadir (@RequestBody @Valid Usuario cliente) {  
-		
-		Usuario usuario = new Usuario(cliente.getUsuario(), cliente.getContrasena(), cliente.getRol(), true, cliente.getCorreo(), cliente.getTelefono(), cliente.getDir());
-		return service.actualizar(usuario);
+		return service.actualizar(cliente);
 	}
 	/*@PostMapping("/trabajadores")
 	public boolean Aniadir(@RequestBody @Valid Trabajadores trabajadores) {
@@ -62,7 +59,7 @@ public class UsuariosController {
 		return service.obtener();
 	}
 	@GetMapping("/usuario")
-	public Usuario obtener(@RequestBody @Valid Usuario cliente){
-		return service.obtenerPorNombre(cliente.getUsuario());
+	public Usuario obtener(@RequestParam(value="nombre", required=true) String nombre){
+		return service.obtenerPorNombre(nombre);
 	}
 }

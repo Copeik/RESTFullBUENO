@@ -38,43 +38,8 @@ public class PedidosController {
 	public boolean Actualizar(@RequestBody @Valid Pedidos pedidos) {
 		return service.actualizar(pedidos);
 	}
-	
-	@PostMapping("/pedidos")
-		    public boolean Actualizar2 (@RequestParam(value="codpedido", required=false) int codpedido,@RequestParam(value="cliente", required=true) int cliente, 
-		            @RequestParam(value="fecha", required=true) String fecha,@RequestParam(value="entregado", required=true) boolean entregado, 
-		            @RequestParam(value="descripcion", required=true) String descripcion,@RequestParam(value="total", required=true) double total,@RequestParam(value="codtrabajador", required=true) int codtrabajador) throws ParseException {
-		Usuario a = new Usuario();
-		a.setId(cliente);
-		Trabajadores tra = new Trabajadores();
-		tra.setCod_trabajador(codtrabajador);
-		SimpleDateFormat formatoDelTexto = new SimpleDateFormat("yyyy-MM-dd");
-		Date fecha_cad2 = null;
-		fecha_cad2 = formatoDelTexto.parse(fecha);
-		    	Pedidos pedidos = new Pedidos(a,fecha_cad2,entregado,descripcion,total);
-		    	if (codpedido != 0) {
-		    		pedidos.setCodpedido(codpedido);
-				}
-		    	
-		    	return service.crear(pedidos);
-	
-	}
-	@PostMapping("/pedidosins")
-    public boolean Aniadir (@RequestParam(value="cliente", required=true) int cliente, 
-            @RequestParam(value="fecha", required=true) String fecha,@RequestParam(value="entregado", required=true) boolean entregado, 
-            @RequestParam(value="descripcion", required=true) String descripcion,@RequestParam(value="total", required=true) double total,@RequestParam(value="codtrabajador", required=true) int codtrabajador) throws ParseException {
-		Usuario a = new Usuario();
-a.setId(cliente);
-Trabajadores tra = new Trabajadores();
-tra.setCod_trabajador(codtrabajador);
-SimpleDateFormat formatoDelTexto = new SimpleDateFormat("yyyy-MM-dd");
-Date fecha_cad2 = null;
-fecha_cad2 = formatoDelTexto.parse(fecha);
-    	Pedidos pedidos = new Pedidos(a,fecha_cad2,entregado,descripcion,total);
-   	
-    	return service.crear(pedidos);
-}
 
-	@PostMapping("/pedidosBODY")
+	@PostMapping("/pedidos")
 	public boolean Aniadir(@RequestBody @Valid Pedidos pedidos) {
 		return service.crear(pedidos);
 	}

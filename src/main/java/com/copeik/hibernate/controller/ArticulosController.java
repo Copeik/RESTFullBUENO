@@ -41,7 +41,6 @@ public class ArticulosController {
 		
 		
 		SimpleDateFormat formatoDelTexto = new SimpleDateFormat("yyyy-MM-dd");
-		;
 		Date fecha_cad2 = null;
 		fecha_cad2 = formatoDelTexto.parse(articulo.fecha_caducidad.toString());
 		Articulos art = new Articulos(articulo.cantidad, articulo.nombre , articulo.descripcion , articulo.precio_articulo ,articulo.codigo_tipo,fecha_cad2 );

@@ -26,7 +26,7 @@ public class UsuarioService implements UserDetailsService {
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		Usuario user = repo.findByUsuario(username);
 		return new User(user.getUsuario(), user.getContrasena(), 
-				user.isActivo(), user.isActivo(), user.isActivo(), user.isActivo(), buildgrante((byte)user.getRol().getId_rol()) );
+				user.isActivo(), user.isActivo(), user.isActivo(), user.isActivo(), buildgrante((byte)1) );
 	}
 	
 	public List<GrantedAuthority> buildgrante(byte rol){

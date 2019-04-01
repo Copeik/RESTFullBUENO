@@ -45,6 +45,7 @@ public class Usuario implements Serializable {
 	@JoinColumn(name = "id_direc")
 	public Direccion dir;
 	
+	
 	public Usuario() {
 		
 	}

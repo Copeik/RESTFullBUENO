@@ -43,8 +43,8 @@ public class TipoController {
 	}
 	
 	@DeleteMapping("/tipo")
-	public boolean borrar(@RequestParam(value="nombre", required=true) String nombre) {
-		return service.borrar(nombre);
+	public boolean borrar(@RequestBody @Valid Tipo tipo) {
+		return service.borrar(tipo.getNombre());
 		
 	}
 	

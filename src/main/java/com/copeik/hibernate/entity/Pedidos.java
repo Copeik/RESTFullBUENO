@@ -47,14 +47,19 @@ public class Pedidos implements Serializable{
 	public Pedidos() {
 	}
 
-	public Pedidos(Usuario cod_cliente, Date fecha,
-			boolean entregado, String descripcion, double total) {
-		this.cliente = cod_cliente;
+
+
+	public Pedidos(Usuario cliente, Date fecha, boolean entregado, String descripcion, double total,
+			Estado estado) {
+		this.cliente = cliente;
 		this.fecha = fecha;
 		this.entregado = entregado;
 		this.descripcion = descripcion;
 		this.total = total;
+		this.estado = estado;
 	}
+
+
 
 	public int getCodpedido() {
 		return codpedido;
