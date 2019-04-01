@@ -7,10 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Service;
-
-import com.copeik.hibernate.converter.ArticuloConvertidor;
 import com.copeik.hibernate.entity.Articulos;
-import com.copeik.hibernate.model.*;
 import com.copeik.hibernate.repository.ArticulosRepositorio;
 
 
@@ -21,10 +18,6 @@ public class ArticuloService {
 	@Autowired
 	@Qualifier("articulosRepositorio")
 	private ArticulosRepositorio repositorio;
-	
-	@Autowired
-	@Qualifier("articulosConvertidor")
-	private ArticuloConvertidor convertidor;
 	
 	public boolean crear(Articulos articulo) {
 			repositorio.save(articulo);
@@ -49,12 +42,12 @@ public class ArticuloService {
 		}
 	}
 	
-	public List<MArticulos> obtener(){
-		return convertidor.convertirLista(repositorio.findAll());
+	public List<Articulos> obtener(){
+		return repositorio.findAll();
 	}
 	
-	public List<MArticulos> obtenerPorNombre(String titulo){
-		return convertidor.convertirLista(repositorio.findByNombre(titulo));
+	public List<Articulos> obtenerPorNombre(String titulo){
+		return repositorio.findByNombre(titulo);
 	}
 	
 }

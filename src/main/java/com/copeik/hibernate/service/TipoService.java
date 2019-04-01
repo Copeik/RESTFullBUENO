@@ -6,12 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Service;
-
-import com.copeik.hibernate.converter.TipoConvertidor;
 import com.copeik.hibernate.entity.Articulos;
 import com.copeik.hibernate.entity.Tipo;
-import com.copeik.hibernate.model.MArticulos;
-import com.copeik.hibernate.model.MTipo;
 import com.copeik.hibernate.repository.TipoRepositorio;
 
 @Service("TipoServicio")
@@ -21,9 +17,6 @@ public class TipoService {
 	@Qualifier("tipoRepositorio")
 	private TipoRepositorio repositorio;
 	
-	@Autowired
-	@Qualifier("tipoConvertidor")
-	private TipoConvertidor convertidor;
 	
 	public boolean crear(Tipo tipo) {
 		
@@ -49,8 +42,8 @@ public class TipoService {
 		}
 	}
 	
-	public List<MTipo> obtener(){
-		return convertidor.convertirLista(repositorio.findAll());
+	public List<Tipo> obtener(){
+		return repositorio.findAll();
 	}
 	
 }

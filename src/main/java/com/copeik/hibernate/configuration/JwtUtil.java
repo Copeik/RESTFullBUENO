@@ -10,10 +10,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import static java.util.Collections.emptyList;
 
+import java.io.IOException;
+
 public class JwtUtil {
 
     // Método para crear el JWT y enviarlo al cliente en el header de la respuesta
-    static void addAuthentication(HttpServletResponse res, String username) {
+    static void addAuthentication(HttpServletResponse res, String username) throws IOException {
 
         String token = Jwts.builder()
             .setSubject(username)
@@ -23,6 +25,8 @@ public class JwtUtil {
             .compact();
 
         //agregamos al encabezado el token
+        res.getWriter().write(token);
+        res.setStatus(200);
         res.addHeader("Authorization", "Bearer " + token);
     }
 

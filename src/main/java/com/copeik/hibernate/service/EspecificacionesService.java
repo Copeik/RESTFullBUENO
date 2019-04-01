@@ -4,14 +4,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Service;
-
-import com.copeik.hibernate.converter.EspecificacionesConvertidor;
-import com.copeik.hibernate.entity.Articulos;
 import com.copeik.hibernate.entity.Especificaciones;
-import com.copeik.hibernate.model.MArticulos;
-import com.copeik.hibernate.model.MEspecificaciones;
 import com.copeik.hibernate.repository.EspecificacionesRepositorio;
 
 @Service("EspecificacionesServicio")
@@ -20,10 +14,7 @@ public class EspecificacionesService {
 	@Autowired
 	@Qualifier("especificacionesRepositorio")
 	private EspecificacionesRepositorio repositorio;
-	
-	@Autowired
-	@Qualifier("especificacionesConvertidor")
-	private EspecificacionesConvertidor convertidor;
+
 	
 	public boolean crear(Especificaciones especificaciones) {
 		
@@ -46,7 +37,7 @@ public class EspecificacionesService {
 		}
 	}
 	
-	public List<MEspecificaciones> obtener(){
-		return convertidor.convertirLista(repositorio.findAll());
+	public List<Especificaciones> obtener(){
+		return repositorio.findAll();
 	}
 }

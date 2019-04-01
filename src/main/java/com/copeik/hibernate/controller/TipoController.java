@@ -15,12 +15,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.copeik.hibernate.converter.TipoConvertidor;
 import com.copeik.hibernate.entity.Pedidos;
 import com.copeik.hibernate.entity.Tipo;
-import com.copeik.hibernate.model.MArticulos;
-import com.copeik.hibernate.model.MTipo;
 import com.copeik.hibernate.repository.TipoRepositorio;
 import com.copeik.hibernate.service.TipoService;
 
@@ -53,7 +49,7 @@ public class TipoController {
 	}
 	
 	@GetMapping("/tipo")
-	public List<MTipo> obtenerLista(){
+	public List<Tipo> obtenerLista(){
 		return service.obtener();
 	}
 }

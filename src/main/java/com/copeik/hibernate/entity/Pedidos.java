@@ -2,16 +2,11 @@ package com.copeik.hibernate.entity;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.time.LocalDate;
-import java.util.List;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -34,7 +29,7 @@ public class Pedidos implements Serializable{
 	public int codpedido;
 	@OneToOne   
 	@JoinColumn(name="codcliente")
-	public Clientes cliente;
+	public Usuario cliente;
 	@NotNull(message = "El  no puede ser nulo")
 	@Column(name="fecha")
 	@Temporal(TemporalType.DATE)
@@ -46,50 +41,45 @@ public class Pedidos implements Serializable{
 	@Column(name="total")
 	public double total;
 	@OneToOne  
-	@JoinColumn(name = "cod_trabajador")
-	public Trabajadores cod_trab;
+	@JoinColumn(name = "estado")
+	public Estado estado;
 	
 	public Pedidos() {
 	}
-	
-	
 
-	public Pedidos(Clientes cod_cliente, Date fecha,
-			boolean entregado, String descripcion, double total, Trabajadores cod_trab) {
+	public Pedidos(Usuario cod_cliente, Date fecha,
+			boolean entregado, String descripcion, double total) {
 		this.cliente = cod_cliente;
 		this.fecha = fecha;
 		this.entregado = entregado;
 		this.descripcion = descripcion;
 		this.total = total;
-		this.cod_trab = cod_trab;
 	}
 
-
-
-
-	public Trabajadores getCod_trab() {
-		return cod_trab;
-	}
-
-
-
-	public void setCod_trab(Trabajadores cod_trab) {
-		this.cod_trab = cod_trab;
-	}
-
-
-
-	public int getCod_pedido() {
+	public int getCodpedido() {
 		return codpedido;
 	}
 
-	public void setCod_pedido(int cod_pedido) {
-		this.codpedido = cod_pedido;
+	public void setCodpedido(int codpedido) {
+		this.codpedido = codpedido;
 	}
 
-	public Clientes getCod_cliente() {
+	public Usuario getCliente() {
 		return cliente;
 	}
+	
+	public void setCliente(Usuario cliente) {
+		this.cliente = cliente;
+	}
+
+	public Estado getEstado() {
+		return estado;
+	}
+
+	public void setEstado(Estado estado) {
+		this.estado = estado;
+	}
+	
 	public String getDescripcion() {
 		return descripcion;
 	}
@@ -97,7 +87,7 @@ public class Pedidos implements Serializable{
 		this.descripcion = descripcion;
 	}
 
-	public void setCod_cliente(Clientes cod_cliente) {
+	public void setCod_cliente(Usuario cod_cliente) {
 		this.cliente = cod_cliente;
 	}
 
