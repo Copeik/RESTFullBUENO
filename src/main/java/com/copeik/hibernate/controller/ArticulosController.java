@@ -8,6 +8,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -39,11 +40,7 @@ public class ArticulosController {
 	@PostMapping("/articulo")
     public boolean Aniadir (@RequestBody @Valid Articulos articulo) throws java.text.ParseException {    
 		
-		
-		SimpleDateFormat formatoDelTexto = new SimpleDateFormat("yyyy-MM-dd");
-		Date fecha_cad2 = null;
-		fecha_cad2 = formatoDelTexto.parse(articulo.fecha_caducidad.toString());
-		Articulos art = new Articulos(articulo.cantidad, articulo.nombre , articulo.descripcion , articulo.precio_articulo ,articulo.codigo_tipo,fecha_cad2 );
+		Articulos art = new Articulos(articulo.cantidad, articulo.nombre , articulo.descripcion , articulo.precio_articulo ,articulo.codigo_tipo,articulo.fecha_caducidad );
 		return service.crear(art);
 	}
 	
@@ -61,5 +58,8 @@ public class ArticulosController {
 	public List<Articulos> obtenerLista(){
 		return service.obtener();
 	}
-	
+	@GetMapping("/articuloP")
+	public List<Articulos> obtenerListaPaginacion(Pageable pageable){
+		return service.obtenerPorPaginacion(pageable);
+	}
 }
