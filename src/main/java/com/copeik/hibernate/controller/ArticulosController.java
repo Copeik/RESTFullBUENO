@@ -40,8 +40,8 @@ public class ArticulosController {
 	@PostMapping("/articulo")
     public boolean Aniadir (@RequestBody @Valid Articulos articulo) throws java.text.ParseException {    
 		
-		Articulos art = new Articulos(articulo.cantidad, articulo.nombre , articulo.descripcion , articulo.precio_articulo ,articulo.codigo_tipo,articulo.fecha_caducidad );
-		return service.crear(art);
+		
+		return service.crear(articulo);
 	}
 	
 	/*@PostMapping("/articulo")

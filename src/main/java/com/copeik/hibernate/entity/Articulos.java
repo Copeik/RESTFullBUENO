@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -32,6 +33,8 @@ public class Articulos implements Serializable{
 	public int cantidad;
 	@Column(name="nombre")
 	public String nombre;
+    @Column(name = "imagen",columnDefinition="TEXT")
+	public String imagen;
 	@Column(name="descripcion")
 	public String descripcion;
 	@Column(name="precio_articulo")
