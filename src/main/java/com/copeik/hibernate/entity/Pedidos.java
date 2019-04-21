@@ -30,10 +30,8 @@ public class Pedidos implements Serializable{
 	@OneToOne   
 	@JoinColumn(name="codcliente")
 	public Usuario cliente;
-	@NotNull(message = "El  no puede ser nulo")
 	@Column(name="fecha")
-	@Temporal(TemporalType.DATE)
-	public Date fecha;
+	public String fecha;
 	@Column(name="entregado")
 	public boolean entregado;
 	@Column(name="descripcion")
@@ -49,7 +47,7 @@ public class Pedidos implements Serializable{
 
 
 
-	public Pedidos(Usuario cliente, Date fecha, boolean entregado, String descripcion, double total,
+	public Pedidos(Usuario cliente, String fecha, boolean entregado, String descripcion, double total,
 			Estado estado) {
 		this.cliente = cliente;
 		this.fecha = fecha;
@@ -97,11 +95,11 @@ public class Pedidos implements Serializable{
 	}
 
 
-	public Date getFecha() {
+	public String getFecha() {
 		return fecha;
 	}
 
-	public void setFecha(Date fecha) {
+	public void setFecha(String fecha) {
 		this.fecha = fecha;
 	}
 
