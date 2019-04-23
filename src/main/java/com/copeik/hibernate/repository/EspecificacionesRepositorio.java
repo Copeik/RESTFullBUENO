@@ -17,9 +17,8 @@ public interface EspecificacionesRepositorio extends JpaRepository<Especificacio
 	
 	public abstract Especificaciones findByPrecio(double precio);
 	
+	
 	public abstract List<Especificaciones> findAll();
 	
-	@Query("select e FROM Especificaciones e where e.id.pedido=?1")
-	public List<Especificaciones> findEspecificationByIdX(Integer idPedido);
 	
 }

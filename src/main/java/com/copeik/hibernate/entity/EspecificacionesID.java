@@ -16,7 +16,7 @@ public class EspecificacionesID implements Serializable{
 
 	private static final long serialVersionUID =1L;
 	
-	@ManyToOne(fetch= FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="pedido")
 	public Pedidos pedido;
 	
