@@ -54,4 +54,8 @@ public class PedidosController {
 	public List<Pedidos> obtenerLista(){
 		return service.obtener();
 	}
+	@GetMapping("/pedidoslast")
+	public Pedidos obtenerultimo(){
+		return service.obtenerUltimo();
+	}
 }

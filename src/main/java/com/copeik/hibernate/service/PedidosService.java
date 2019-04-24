@@ -44,6 +44,9 @@ public class PedidosService {
 	public List<Pedidos> obtener(){
 		return repositorio.findAll();
 	}
+	public Pedidos obtenerUltimo(){
+		return repositorio.findpedlast().get(0);
+	}
 	
 	public List<Pedidos> obtenerPorNombre(int cod_cliente){
 		return repositorio.findByCodpedido(cod_cliente);
