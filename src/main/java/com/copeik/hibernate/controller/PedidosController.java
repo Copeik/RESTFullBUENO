@@ -54,6 +54,16 @@ public class PedidosController {
 	public List<Pedidos> obtenerLista(){
 		return service.obtener();
 	}
+	@GetMapping("/pedidoscliente")
+	public List<Pedidos> obtenerLista(@RequestParam(value="cod_cliente", required=true) int cod_cliente){
+		Usuario ur= new Usuario();
+		ur.setId(cod_cliente);
+		return service.obtenerporcliente(ur);
+	}
+	@GetMapping("/pedido")
+	public List<Pedidos> obtenerPedido(@RequestParam(value="cod_pedido", required=true) int cod_pedido){
+		return service.obtenerPorCodigoPedido(cod_pedido);
+	}
 	@GetMapping("/pedidoslast")
 	public Pedidos obtenerultimo(){
 		return service.obtenerUltimo();
