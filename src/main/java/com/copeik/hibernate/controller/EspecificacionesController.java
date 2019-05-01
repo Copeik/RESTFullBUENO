@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.copeik.hibernate.entity.Especificaciones;
+import com.copeik.hibernate.entity.Pedidos;
 import com.copeik.hibernate.service.EspecificacionesService;
 
 @RestController
@@ -48,5 +49,12 @@ public class EspecificacionesController {
 	@GetMapping("/especificaciones")
 	public List<Especificaciones> obtenerLista(){
 		return service.obtener();
+	}
+	
+	@GetMapping("/especificacionesPedido")
+	public List<Especificaciones> obtenerPorCodPedido(@RequestParam(value="cod_pedido", required=true) int cod_pedido){
+		Pedidos a = new Pedidos();
+		a.setCodpedido(cod_pedido);
+		return service.obtenerPorCodigo(a);
 	}
 }

@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import com.copeik.hibernate.entity.Especificaciones;
@@ -19,6 +20,10 @@ public interface EspecificacionesRepositorio extends JpaRepository<Especificacio
 	
 	
 	public abstract List<Especificaciones> findAll();
+	
+	@Query(" Select a from Especificaciones a where pedido = :pedido")
+	public abstract List<Especificaciones> findPorCodigo(@Param("pedido") int pedido);
+	
 	
 	
 }

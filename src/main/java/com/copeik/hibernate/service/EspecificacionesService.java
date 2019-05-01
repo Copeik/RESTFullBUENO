@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import com.copeik.hibernate.entity.Especificaciones;
+import com.copeik.hibernate.entity.Pedidos;
 import com.copeik.hibernate.repository.EspecificacionesRepositorio;
 
 @Service("EspecificacionesServicio")
@@ -39,5 +40,8 @@ public class EspecificacionesService {
 	
 	public List<Especificaciones> obtener(){
 		return repositorio.findAll();
+	}
+	public List<Especificaciones> obtenerPorCodigo(Pedidos a){
+		return repositorio.findPorCodigo(a.codpedido);
 	}
 }
