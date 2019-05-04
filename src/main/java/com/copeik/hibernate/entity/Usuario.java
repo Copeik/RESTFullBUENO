@@ -25,6 +25,12 @@ public class Usuario implements Serializable {
 	@Column(name="usuario")
 	private String usuario;
 	
+	@Column(name="nombre")
+	private String nombre;
+	
+	@Column(name="apellidos")
+	private String apellidos;
+	
 	@Column(name="contrasena")
 	private String contrasena;
 	
@@ -50,11 +56,13 @@ public class Usuario implements Serializable {
 		
 	}
 
-
-
-	public Usuario(String usuario, String contrasena, Rol rol, boolean activo, String correo, int telefono,
-			Direccion dir) {
+	public Usuario(long id, String usuario, String nombre, String apellidos, String contrasena, Rol rol, boolean activo,
+			String correo, int telefono, Direccion dir) {
+		super();
+		this.id = id;
 		this.usuario = usuario;
+		this.nombre = nombre;
+		this.apellidos = apellidos;
 		this.contrasena = contrasena;
 		this.rol = rol;
 		this.activo = activo;
@@ -63,6 +71,29 @@ public class Usuario implements Serializable {
 		this.dir = dir;
 	}
 
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+
+	public String getApellidos() {
+		return apellidos;
+	}
+
+	public void setApellidos(String apellidos) {
+		this.apellidos = apellidos;
+	}
+
+
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 
 
 	public long getId() {

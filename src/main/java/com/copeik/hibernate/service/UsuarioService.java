@@ -66,6 +66,10 @@ public boolean borrar(long usuario) {
 public Usuario obtenerPorNombre(String usuario){
 	return repo.findByUsuario(usuario);
 }
+
+public Usuario obtenerporcorreo(String correo){
+	return repo.findByCorreo(correo);
+}
 	
 
 }

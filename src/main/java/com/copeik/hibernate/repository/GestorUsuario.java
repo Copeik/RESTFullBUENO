@@ -11,6 +11,10 @@ public interface GestorUsuario extends JpaRepository<Usuario, Serializable> {
 
 	public abstract Usuario findByUsuario(String usuario);
 	
+	public abstract Usuario findByNombre(String usuario);
+	
+	public abstract Usuario findByCorreo(String correo);
+	
 	public abstract Usuario findById(long usuario);
 	
 	public abstract List<Usuario> findAll();

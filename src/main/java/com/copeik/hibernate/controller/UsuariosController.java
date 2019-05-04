@@ -58,8 +58,13 @@ public class UsuariosController {
 	public List<Usuario> obtenerLista(){
 		return service.obtener();
 	}
-	@GetMapping("/usuario")
-	public Usuario obtener(@RequestParam(value="nombre", required=true) String nombre){
-		return service.obtenerPorNombre(nombre);
+	@GetMapping("/usuarioemail")
+	public Usuario obtenerUsuarioEmail(@RequestParam(value="correo", required=true) String correo){
+		return service.obtenerporcorreo(correo);
 	}
+	@GetMapping("/usuario")
+	public Usuario obtener(@RequestParam(value="usuario", required=true) String usuario){
+		return service.obtenerPorNombre(usuario);
+	}
+	
 }
