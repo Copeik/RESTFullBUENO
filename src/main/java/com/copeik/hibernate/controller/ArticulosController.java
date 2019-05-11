@@ -9,6 +9,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.domain.Pageable;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,10 +19,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.copeik.hibernate.entity.Articulos;
+import com.copeik.hibernate.entity.Tipo;
 import com.copeik.hibernate.service.ArticuloService;
 
 @RestController
 @RequestMapping("/v1")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class ArticulosController {
 	
 	/*
@@ -48,10 +51,10 @@ public class ArticulosController {
 	public boolean Aniadir(@RequestBody @Valid Articulos articulo) {
 		return service.crear(articulo);
 	}*/
-	
-	@DeleteMapping("/articulo")
-	public boolean borrar(@RequestParam(value="cod_art", required=true) int cod_art) {
-		return service.borrar(cod_art);
+	//@RequestParam(value="cod_art", required=true) int cod_art
+	@PostMapping("/articuloD")
+	public boolean borrar(@RequestBody @Valid Articulos articulo) {
+		return service.borrar(articulo);
 		
 	}
 	@GetMapping("/articulo")
@@ -61,5 +64,12 @@ public class ArticulosController {
 	@GetMapping("/articuloP")
 	public List<Articulos> obtenerListaPaginacion(Pageable pageable){
 		return service.obtenerPorPaginacion(pageable);
+	}
+	@GetMapping("/articuloT")
+	public List<Articulos> obtenerListaTipo(@RequestParam(value="tipo", required=true) int tipo){
+		Tipo a = new Tipo();
+		a.setCodigo_t(tipo);
+		
+		return service.obtenerPorTipo(a);
 	}
 }

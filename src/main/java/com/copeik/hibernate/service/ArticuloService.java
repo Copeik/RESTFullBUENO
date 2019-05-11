@@ -9,6 +9,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import com.copeik.hibernate.entity.Articulos;
+import com.copeik.hibernate.entity.Tipo;
 import com.copeik.hibernate.repository.ArticulosRepositorio;
 
 
@@ -33,9 +34,8 @@ public class ArticuloService {
 		return true;
 	
 }
-	public boolean borrar(int cod_art ) {
+	public boolean borrar(Articulos art ) {
 		try {
-			Articulos art = repositorio.findByCodarticulo(cod_art);
 			repositorio.delete(art);
 			return true;
 		} catch (Exception e) {
@@ -53,5 +53,7 @@ public class ArticuloService {
 	public List<Articulos> obtenerPorNombre(String titulo){
 		return repositorio.findByNombre(titulo);
 	}
-	
+	public List<Articulos> obtenerPorTipo(Tipo tipo){
+		return repositorio.findPorCodigo(tipo);
+	}
 }

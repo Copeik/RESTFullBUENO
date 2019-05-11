@@ -3,6 +3,7 @@ package com.copeik.hibernate.configuration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -27,10 +28,13 @@ public class WebSecurity extends WebSecurityConfigurerAdapter{
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception{
+
 		http.cors().configurationSource(request -> new CorsConfiguration().applyPermitDefaultValues()).and().csrf().disable().authorizeRequests()
         .antMatchers("/login").permitAll()
-        .antMatchers("/v1/usuario").permitAll()//permitimos el acceso a /login a cualquiera
-        .anyRequest().authenticated() //cualquier otra peticion requiere autenticacion
+        .antMatchers("/v1/articulo").permitAll()
+        .antMatchers("/v1/usuario").permitAll()
+        .antMatchers(HttpMethod.OPTIONS, "**").permitAll()//allow CORS option calls
+		.anyRequest().authenticated()//permitimos el acceso a /login a cualquiera //cualquier otra peticion requiere autenticacion
         .and()
         // Las peticiones /login pasaran previamente por este filtro
         .addFilterBefore(new LoginFilter("/login", authenticationManager()),
