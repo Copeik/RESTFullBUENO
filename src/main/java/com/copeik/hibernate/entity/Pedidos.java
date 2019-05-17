@@ -41,20 +41,24 @@ public class Pedidos implements Serializable{
 	@OneToOne  
 	@JoinColumn(name = "estado")
 	public Estado estado;
+	@Column(name="direccion")
+	public String direccion;
+	
 	
 	public Pedidos() {
 	}
 
 
-
-	public Pedidos(Usuario cliente, String fecha, boolean entregado, String descripcion, double total,
-			Estado estado) {
+	public Pedidos(int codpedido, Usuario cliente, String fecha, boolean entregado, String descripcion, double total,
+			Estado estado, String direccion) {
+		this.codpedido = codpedido;
 		this.cliente = cliente;
 		this.fecha = fecha;
 		this.entregado = entregado;
 		this.descripcion = descripcion;
 		this.total = total;
 		this.estado = estado;
+		this.direccion = direccion;
 	}
 
 

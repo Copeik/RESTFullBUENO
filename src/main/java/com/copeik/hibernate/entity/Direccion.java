@@ -1,3 +1,4 @@
+
 package com.copeik.hibernate.entity;
 
 import java.io.Serializable;
