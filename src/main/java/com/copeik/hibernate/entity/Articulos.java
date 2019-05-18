@@ -33,7 +33,7 @@ public class Articulos implements Serializable{
 	public int cantidad;
 	@Column(name="nombre")
 	public String nombre;
-    @Column(name = "imagen",columnDefinition="TEXT")
+    @Column(name = "imagen",columnDefinition="LONGTEXT")
 	public String imagen;
 	@Column(name="descripcion")
 	public String descripcion;
