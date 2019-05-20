@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.copeik.hibernate.entity.Articulos;
 import com.copeik.hibernate.entity.Pedidos;
 import com.copeik.hibernate.entity.Trabajadores;
 import com.copeik.hibernate.entity.Usuario;
@@ -44,9 +46,9 @@ public class PedidosController {
 		return service.crear(pedidos);
 	}
 	
-	@DeleteMapping("/pedidos")
-	public boolean borrar(@RequestParam(value="cod_pedido", required=true) int cod_pedido) {
-		return service.borrar(cod_pedido);
+	@PostMapping("/pedidosD")
+	public boolean borrar(@RequestBody @Valid Pedidos pedidos) {
+		return service.borrar(pedidos);
 		
 	}
 	

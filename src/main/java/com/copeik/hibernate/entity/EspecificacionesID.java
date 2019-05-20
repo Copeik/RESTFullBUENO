@@ -2,6 +2,7 @@ package com.copeik.hibernate.entity;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.FetchType;
@@ -16,7 +17,7 @@ public class EspecificacionesID implements Serializable{
 
 	private static final long serialVersionUID =1L;
 	
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.EAGER,cascade =CascadeType.ALL)
 	@JoinColumn(name="pedido")
 	public Pedidos pedido;
 	

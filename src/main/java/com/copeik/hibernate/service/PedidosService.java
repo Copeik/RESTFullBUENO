@@ -33,10 +33,9 @@ public class PedidosService {
 		return true;
 	}
 	
-	public boolean borrar(int cod_pedido) {
+	public boolean borrar(Pedidos cod_pedido) {
 		try {
-			Pedidos art = repositorio.findByCodpedido(cod_pedido).get(0);
-			repositorio.delete(art);
+			repositorio.delete(cod_pedido);
 			return true;
 		} catch (Exception e) {
 			return false;

@@ -40,9 +40,9 @@ public class EspecificacionesController {
 		return service.crear(especificaciones);
 	}
 	
-	@DeleteMapping("/especificaciones")
-	public boolean borrar(@RequestParam(value="cod_pedido", required=true) int cod_pedido,@RequestParam(value="cod_art", required=true) int cod_art){
-		return service.borrar(cod_pedido,cod_art);
+	@PostMapping("/especificacionesD")
+	public boolean borrar(@RequestBody @Valid Especificaciones especificaciones){
+		return service.borrar(especificaciones);
 		
 	}
 	

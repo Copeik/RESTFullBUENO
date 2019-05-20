@@ -28,10 +28,10 @@ public class EspecificacionesService {
 		return true;
 	}
 	
-	public boolean borrar(int pedido,int cod_art ) {
+	public boolean borrar(Especificaciones especificaciones) {
 		try {
-			Especificaciones art = repositorio.findById(pedido, cod_art);
-			repositorio.delete(art);
+			
+			repositorio.delete(especificaciones);
 			return true;
 		} catch (Exception e) {
 			return false;

@@ -2,6 +2,7 @@ package com.copeik.hibernate.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -18,6 +19,7 @@ public class Tipo {
 	private static final long serialVersionUID =1L;
 
 	@Id
+	@GeneratedValue()
 	@Column(name="codigo_t")
 	public int codigo_t;
 	@Column(name="nombre")
