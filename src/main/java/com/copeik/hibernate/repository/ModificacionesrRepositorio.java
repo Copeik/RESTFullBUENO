@@ -13,5 +13,7 @@ import com.copeik.hibernate.entity.Pedidos;
 @Repository("modificacionesRepositorio")
 public interface ModificacionesrRepositorio extends JpaRepository<Modificaciones, Serializable>{
 	public abstract List<Modificaciones> findAll(); 
+	
+	public abstract List<Modificaciones> findByCodpedido(Pedidos ped); 
 
 }

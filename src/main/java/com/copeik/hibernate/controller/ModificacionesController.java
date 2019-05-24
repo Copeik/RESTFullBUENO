@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.copeik.hibernate.entity.Direccion;
 import com.copeik.hibernate.entity.Modificaciones;
+import com.copeik.hibernate.entity.Pedidos;
 import com.copeik.hibernate.repository.DireccionRepositorio;
 import com.copeik.hibernate.service.DireccionService;
 import com.copeik.hibernate.service.ModificacionesService;
@@ -45,6 +46,13 @@ public class ModificacionesController {
 	public boolean Modificaciones(@RequestBody @Valid Modificaciones mod) {
 		return service.borrar(mod);
 		
+	}
+	
+	@GetMapping("/modificacionesP")
+	public Modificaciones ObtenerPedido(@RequestParam(value="codigopedido", required=true) int codigopedido){
+		Pedidos ped = new Pedidos();
+		ped.codpedido=codigopedido;
+		return service.obtenerPorCodigopedido(ped);
 	}
 	
 	@GetMapping("/modificaciones")

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.copeik.hibernate.entity.Articulos;
 import com.copeik.hibernate.entity.Direccion;
 import com.copeik.hibernate.entity.Modificaciones;
+import com.copeik.hibernate.entity.Pedidos;
 import com.copeik.hibernate.repository.DireccionRepositorio;
 import com.copeik.hibernate.repository.ModificacionesrRepositorio;
 
@@ -45,5 +46,9 @@ public class ModificacionesService {
 	
 	public List<Modificaciones> obtener(){
 		return repositorio.findAll();
+	}
+	
+	public Modificaciones obtenerPorCodigopedido(Pedidos ped) {
+		return repositorio.findByCodpedido(ped).get(0);
 	}
 }
