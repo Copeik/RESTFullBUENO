@@ -27,7 +27,7 @@ public class Modificaciones {
 	@OneToOne  
 	@JoinColumn(name = "codpedido")
 	public Pedidos codpedido;
-	@Column(name="textoModificacion")
+	@Column(name="textoModificacion",columnDefinition="LONGTEXT")
 	public String textoModificacion;
 	@Column(name="modificado")
 	public boolean modificado;

@@ -42,9 +42,9 @@ public class ModificacionesController {
 		return service.crear(mod);
 	}
 	
-	@DeleteMapping("/modificaciones")
+	@PostMapping("/modificacionesD")
 	public boolean Modificaciones(@RequestBody @Valid Modificaciones mod) {
-		return service.borrar(mod);
+		return service.borrar(mod.getCodpedido().getCodpedido());
 		
 	}
 	

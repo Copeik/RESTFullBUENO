@@ -35,9 +35,16 @@ public class ModificacionesService {
 		return true;
 	}
 	
-	public boolean borrar(Modificaciones mod ) {
+	public boolean borrar(int pedido) {
 		try {
-			repositorio.delete(mod);
+			Pedidos ped = new Pedidos();
+			ped.codpedido=pedido;
+			
+			List<Modificaciones> modi=repositorio.findByCodpedido(ped);
+			for (int i = 0; i < modi.size(); i++) {
+				repositorio.delete(modi.get(i));
+			}
+			
 			return true;
 		} catch (Exception e) {
 			return false;
