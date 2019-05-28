@@ -57,6 +57,10 @@ public class ArticulosController {
 		return service.borrar(articulo);
 		
 	}
+	@GetMapping("/articulo1")
+	public Articulos obtener(@RequestParam(value="codarticulo", required=true) int codarticulo){
+		return service.obtener1(codarticulo);
+	}
 	@GetMapping("/articulo")
 	public List<Articulos> obtenerLista(){
 		return service.obtener();

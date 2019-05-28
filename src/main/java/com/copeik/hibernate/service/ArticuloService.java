@@ -46,6 +46,9 @@ public class ArticuloService {
 	public List<Articulos> obtener(){
 		return repositorio.findAll();
 	}
+	public Articulos obtener1(int cod_articulo){
+		return repositorio.findByCodarticulo(cod_articulo);
+	}
 	public List<Articulos> obtenerPorPaginacion(Pageable pageable){
 		return repositorio.findAll(pageable).getContent();
 	}
