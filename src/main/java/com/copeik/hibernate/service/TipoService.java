@@ -32,10 +32,9 @@ public class TipoService {
 		return true;
 	}
 	
-	public boolean borrar(String nombre ) {
+	public boolean borrar(Tipo tipo ) {
 		try {
-			Tipo art = repositorio.findByNombre(nombre);
-			repositorio.delete(art);
+			repositorio.delete(tipo);
 			return true;
 		} catch (Exception e) {
 			return false;

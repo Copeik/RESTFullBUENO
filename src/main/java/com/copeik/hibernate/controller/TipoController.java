@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.copeik.hibernate.entity.Articulos;
 import com.copeik.hibernate.entity.Pedidos;
 import com.copeik.hibernate.entity.Tipo;
 import com.copeik.hibernate.repository.TipoRepositorio;
@@ -36,17 +38,21 @@ public class TipoController {
 	public boolean Actualizar(@RequestBody @Valid Tipo tipo) {
 		return service.actualizar(tipo);
 	}
-	
+	@PostMapping("/tipoD")
+	public boolean borrar(@RequestBody @Valid Tipo tipo) {
+		return service.borrar(tipo);
+		
+	}
 	@PostMapping("/tipo")
 	public boolean Aniadir(@RequestBody @Valid Tipo tipo) {
 		return service.crear(tipo);
 	}
 	
-	@DeleteMapping("/tipo")
-	public boolean borrar(@RequestBody @Valid Tipo tipo) {
-		return service.borrar(tipo.getNombre());
-		
-	}
+//	@DeleteMapping("/tipo")
+//	public boolean borrar(@RequestBody @Valid Tipo tipo) {
+//		return service.borrar(tipo.getNombre());
+//		
+//	}
 	
 	@GetMapping("/tipo")
 	public List<Tipo> obtenerLista(){
